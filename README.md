@@ -6,6 +6,15 @@
  alt="Page Preview"
 />
 
+## Share Files And Videos
+
+- [Aprender Git y github](https://www.youtube.com/watch?v=niPExbK8lSw)
+- [Github Desktop](https://www.youtube.com/watch?v=TuOQBfhp-r0&t=821s)
+- [Aprender DotNet Windows Forms - Ingles](https://www.youtube.com/watch?v=0zLZQesgV5o)
+- [Aprender DotNet Windows Forms - Espaniol](https://www.youtube.com/watch?v=JbqBAkpj7T8&t=982s)
+- [Aprender DotNet Windows Forms - Espaniol - Entity Framework](https://www.youtube.com/watch?v=JAfg2j8qrsg)
+- [Casos de Uso - DrawIO](https://drive.google.com/file/d/1DIQ90IavZdw_TYtvfsRTGQMXg_Ksz_Qs/view?usp=sharing)
+
 ## Specification
 
 In Powersheel execute the command:
