@@ -1,0 +1,8 @@
+{
+  "editor.defaultFormatter": "ms-dotnettools.csharp",
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.razor": "html",
+    "*.svg": "html"
+  }
+}
