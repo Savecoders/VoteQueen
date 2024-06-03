@@ -35,7 +35,7 @@ please execute next commands in powersheel
 ## Developer Folder
 
 ```sh
-cd C:\Users\nameUser\Documents\
+cd C:\users\$Env:Username\Documents\
 mkdir Developer
 cd Developer
 ```
@@ -43,8 +43,8 @@ cd Developer
 ## clone repository
 
 ```sh
-git clone https://github.com/Savecoders/UgVoteQueen.git
-cd UgVoteQueen
+git clone https://github.com/Savecoders/VoteQueen.git
+cd VoteQueen
 ```
 
 ## Config git user
