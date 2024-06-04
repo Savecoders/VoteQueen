@@ -30,7 +30,7 @@ CREATE TABLE Candidata (
     CandidataID INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100) NOT NULL,
     FotoPrincipal VARBINARY(MAX),
-    DatosPersonales NVARCHAR(MAX),
+    Edad INT NOT NULL,
     DatosAcademicos NVARCHAR(MAX),
     Pasatiempos NVARCHAR(MAX),
     Habilidades NVARCHAR(MAX),
@@ -41,7 +41,6 @@ CREATE TABLE Candidata (
 -- Foto
 CREATE TABLE Foto (
     FotoID INT PRIMARY KEY IDENTITY,
-    Titulo NVARCHAR(100),
     Imagen VARBINARY(MAX) NOT NULL,
 );
 
