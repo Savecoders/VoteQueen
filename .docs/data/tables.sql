@@ -14,6 +14,7 @@ CREATE TABLE Usuario (
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL UNIQUE,
     Contrasena NVARCHAR(100) NOT NULL
+    FotoPerfil VARBINARY(MAX),
 );
 
 -- UsuarioRol
@@ -58,7 +59,7 @@ CREATE TABLE Galeria_Fotos (
 -- Comentario
 CREATE TABLE Comentario(
 	ComentarioID INT PRIMARY KEY IDENTITY,
-	Comentario NVARCHAR(MAX) NOT NULL,
+	texto NVARCHAR(MAX) NOT NULL,
 	FechaComentario DATETIME NOT NULL DEFAULT GETDATE()
 )
 
