@@ -5,19 +5,19 @@
 CREATE PROCEDURE RegistrarEstudiante
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
-    @Contraseña NVARCHAR(100)
+    @Contrasena NVARCHAR(100)
 AS
 BEGIN
     BEGIN TRANSACTION T1
         INSERT INTO Usuario (
             Nombre,
             Correo,
-            Contraseña
+            Contrasena
         )
         VALUES (
             @Nombre,
             @Correo,
-            @Contraseña
+            @Contrasena
         )
         SAVE TRANSACTION T1
         COMMIT TRANSACTION T1
@@ -41,14 +41,14 @@ CREATE PROCEDURE ActualizarEstudiante
     @UsuarioID INT,
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
-    @Contraseña NVARCHAR(100)
+    @Contrasena NVARCHAR(100)
 AS
 BEGIN
     UPDATE Usuario
     SET
         Nombre = @Nombre,
         Correo = @Correo,
-        Contraseña = @Contraseña
+        Contrasena = @Contrasena
     WHERE UsuarioID = @UsuarioID
 END;
 

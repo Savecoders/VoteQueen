@@ -13,7 +13,7 @@ CREATE TABLE Usuario (
     UsuarioID INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL UNIQUE,
-    Contraseña NVARCHAR(100) NOT NULL
+    Contrasena NVARCHAR(100) NOT NULL
 );
 
 -- UsuarioRol
