@@ -5,34 +5,31 @@
 CREATE PROCEDURE RegistrarEstudiante
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
-    @Contrasena NVARCHAR(100)
+    @Contrasena NVARCHAR(100),
+    @FotoPerfil VARBINARY(MAX)
 AS
 BEGIN
-    BEGIN TRANSACTION T1
-        INSERT INTO Usuario (
-            Nombre,
-            Correo,
-            Contrasena
+    INSERT INTO Usuario (
+        Nombre,
+        Correo,
+        Contrasena,
+        FotoPerfil
+    )
+    VALUES (
+        @Nombre,
+        @Correo,
+        @Contrasena,
+        @FotoPerfil
         )
-        VALUES (
-            @Nombre,
-            @Correo,
-            @Contrasena
-        )
-        SAVE TRANSACTION T1
-        COMMIT TRANSACTION T1
     
-    BEGIN TRANSACTION T2
-        INSERT INTO UsuarioRol (
-            UsuarioID,
-            RolID
-        )
-        VALUES (
-            SCOPE_IDENTITY(),
-            2
-        )
-        SAVE TRANSACTION T2
-        COMMIT TRANSACTION T2
+    INSERT INTO UsuarioRol (
+        UsuarioID,
+        RolID
+    )
+    VALUES (
+        SCOPE_IDENTITY(),
+        2
+    )
 END;
 GO
 
@@ -41,14 +38,16 @@ CREATE PROCEDURE ActualizarEstudiante
     @UsuarioID INT,
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
-    @Contrasena NVARCHAR(100)
+    @Contrasena NVARCHAR(100),
+    @FotoPerfil VARBINARY(MAX)
 AS
 BEGIN
     UPDATE Usuario
     SET
         Nombre = @Nombre,
         Correo = @Correo,
-        Contrasena = @Contrasena
+        Contrasena = @Contrasena,
+        FotoPerfil = @FotoPerfil
     WHERE UsuarioID = @UsuarioID
 END;
 
@@ -70,36 +69,33 @@ CREATE PROCEDURE RegistrarCandidata
     @Nombre NVARCHAR(100),
     @FotoPrincipal VARBINARY(MAX),
     @Edad INT,
-    @DatosPersonales NVARCHAR(MAX),
+    @DatosAcademicos NVARCHAR(MAX),
     @Pasatiempos NVARCHAR(MAX),
     @Habilidades NVARCHAR(MAX),
     @Intereses NVARCHAR(MAX),
     @Aspiraciones NVARCHAR(MAX)
 AS
 BEGIN
-    BEGIN TRANSACTION T1
-        INSERT INTO Candidata (
-            Nombre,
-            FotoPrincipal,
-            Edad,
-            DatosPersonales,
-            Pasatiempos,
-            Habilidades,
-            Intereses,
-            Aspiraciones
-        )
-        VALUES (
-            @Nombre,
-            @FotoPrincipal,
-            @Edad,
-            @DatosPersonales,
-            @Pasatiempos,
-            @Habilidades,
-            @Intereses,
-            @Aspiraciones
-        )
-        SAVE TRANSACTION T1
-        COMMIT TRANSACTION T1
+    INSERT INTO Candidata (
+        Nombre,
+        FotoPrincipal,
+        Edad,
+        DatosAcademicos,
+        Pasatiempos,
+        Habilidades,
+        Intereses,
+        Aspiraciones
+    )
+    VALUES (
+        @Nombre,
+        @FotoPrincipal,
+        @Edad,
+        @DatosAcademicos,
+        @Pasatiempos,
+        @Habilidades,
+        @Intereses,
+        @Aspiraciones
+)
 END;
 
 -- Actualizar Candidata
@@ -108,7 +104,7 @@ CREATE PROCEDURE ActualizarCandidata
     @Nombre NVARCHAR(100),
     @FotoPrincipal VARBINARY(MAX),
     @Edad INT,
-    @DatosPersonales NVARCHAR(MAX),
+    @DatosAcademicos NVARCHAR(MAX),
     @Pasatiempos NVARCHAR(MAX),
     @Habilidades NVARCHAR(MAX),
     @Intereses NVARCHAR(MAX),
@@ -120,7 +116,7 @@ BEGIN
         Nombre = @Nombre,
         FotoPrincipal = @FotoPrincipal,
         Edad = @Edad,
-        DatosPersonales = @DatosPersonales,
+        DatosAcademicos = @DatosAcademicos,
         Pasatiempos = @Pasatiempos,
         Habilidades = @Habilidades,
         Intereses = @Intereses,
@@ -146,17 +142,17 @@ CREATE PROCEDURE RegistrarFoto
     @Imagen VARBINARY(MAX)
 AS
 BEGIN
-        INSERT INTO Foto (
-            Imagen
-        )
-        VALUES (
-            @Imagen
-        )
+    INSERT INTO Foto (
+        Imagen
+    )
+    VALUES (
+        @Imagen
+    )
 END;
 
 -- Actualizar Foto
 CREATE PROCEDURE ActualizarFoto
-    @FotoID INT
+    @FotoID INT,
     @Imagen VARBINARY(MAX)
 AS
 BEGIN
@@ -211,15 +207,15 @@ END;
 
 -- Registrar Comentario
 CREATE PROCEDURE RegistrarComentario
-    @Comentario NVARCHAR(MAX)
+    @texto NVARCHAR(MAX)
 AS
 BEGIN
     BEGIN TRANSACTION T1
         INSERT INTO Comentario (
-            Comentario
+            texto
         )
         VALUES (
-            @Comentario
+            @texto
         )
 
         SAVE TRANSACTION T1
@@ -233,20 +229,16 @@ CREATE PROCEDURE AgregarCandidataComentario
     @ComentarioID INT
 AS
 BEGIN 
-    BEGIN TRANSACTION T1
-        INSERT INTO CandidataComentario (
-            UsuarioID,
-            CandidataID,
-            ComentarioID
-        )
-        VALUES (
-            @UsuarioID,
-            @CandidataID,
-            @ComentarioID
-        )
-
-        SAVE TRANSACTION T1
-        COMMIT TRANSACTION T1
+    INSERT INTO CandidataComentario (
+        UsuarioID,
+        CandidataID,
+        ComentarioID
+    )
+    VALUES (
+        @UsuarioID,
+        @CandidataID,
+        @ComentarioID
+    )
 
 END;
 

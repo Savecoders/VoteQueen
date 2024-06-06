@@ -1,3 +1,16 @@
+CREATE DATABASE UgQueenDatabase
+GO
+
+-- FILE
+
+ALTER DATABASE [UgQueenDatabase]
+ADD FILE (
+	NAME=votequeenfile,
+	FILENAME='E:\Datos\votequeenfile.ndf',
+	SIZE=10MB,
+	MAXSIZE = 100MB,
+	FILEGROWTH = 1MB
+)
 
 USE UgQueenDatabase
 GO
@@ -13,8 +26,8 @@ CREATE TABLE Usuario (
     UsuarioID INT PRIMARY KEY IDENTITY,
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL UNIQUE,
-    Contrasena NVARCHAR(100) NOT NULL
-    FotoPerfil VARBINARY(MAX),
+    Contrasena NVARCHAR(100) NOT NULL,
+    FotoPerfil VARBINARY(MAX)
 );
 
 -- UsuarioRol
@@ -42,7 +55,7 @@ CREATE TABLE Candidata (
 -- Foto
 CREATE TABLE Foto (
     FotoID INT PRIMARY KEY IDENTITY,
-    Imagen VARBINARY(MAX) NOT NULL,
+    Imagen VARBINARY(MAX) NOT NULL
 );
 
 -- Galeria_Fotos
