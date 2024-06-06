@@ -2,7 +2,20 @@
 -- Usuario Estudiante
 -- ----------------------
 -- Registrar Estudiantes
-CREATE PROCEDURE RegistrarEstudiante
+
+-- Login Estudiante
+
+CREATE PROCEDURE sp_login_estudiante
+    @Correo NVARCHAR(100),
+    @Contrasena NVARCHAR(100)
+AS
+BEGIN
+    SELECT UsuarioID, Nombre, Correo, FotoPerfil
+    FROM Usuario
+    WHERE Correo = @Correo AND Contrasena = @Contrasena
+END;
+
+CREATE PROCEDURE sp_registrar_estudiante
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
     @Contrasena NVARCHAR(100),
@@ -34,7 +47,7 @@ END;
 GO
 
 -- Actualizar Estudiante
-CREATE PROCEDURE ActualizarEstudiante
+CREATE PROCEDURE sp_actualizar_estudiante
     @UsuarioID INT,
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
@@ -52,7 +65,7 @@ BEGIN
 END;
 
 -- Eliminar Estudiante
-CREATE PROCEDURE EliminarEstudiante
+CREATE PROCEDURE sp_eliminar_estudiante
     @UsuarioID INT
 AS
 BEGIN
@@ -65,7 +78,7 @@ END;
 -- ----------------------
 
 -- Registrar Candidata
-CREATE PROCEDURE RegistrarCandidata
+CREATE PROCEDURE sp_registrar_candidata
     @Nombre NVARCHAR(100),
     @FotoPrincipal VARBINARY(MAX),
     @Edad INT,
@@ -99,7 +112,7 @@ BEGIN
 END;
 
 -- Actualizar Candidata
-CREATE PROCEDURE ActualizarCandidata
+CREATE PROCEDURE sp_actualizar_candidata
     @CandidataID INT,
     @Nombre NVARCHAR(100),
     @FotoPrincipal VARBINARY(MAX),
@@ -125,7 +138,7 @@ BEGIN
 END;
 
 -- Eliminar Candidata
-CREATE PROCEDURE EliminarCandidata
+CREATE PROCEDURE sp_eliminar_candidata
     @CandidataID INT
 AS
 BEGIN
@@ -138,7 +151,7 @@ END;
 -- ----------------------
 
 -- Registrar Foto
-CREATE PROCEDURE RegistrarFoto
+CREATE PROCEDURE sp_registrar_foto
     @Imagen VARBINARY(MAX)
 AS
 BEGIN
@@ -151,7 +164,7 @@ BEGIN
 END;
 
 -- Actualizar Foto
-CREATE PROCEDURE ActualizarFoto
+CREATE PROCEDURE sp_actualizar_foto
     @FotoID INT,
     @Imagen VARBINARY(MAX)
 AS
@@ -163,7 +176,7 @@ BEGIN
 END;
 
 -- Eliminar Foto
-CREATE PROCEDURE EliminarFoto
+CREATE PROCEDURE sp_eliminar_foto
     @FotoID INT
 AS
 BEGIN
@@ -176,7 +189,7 @@ END;
 -- ----------------------
 
 -- Agregar Foto a Galeria
-CREATE PROCEDURE AgregarFotoGaleria
+CREATE PROCEDURE sp_agregar_foto_galeria
     @CandidataID INT,
     @FotoID INT
 AS
@@ -192,7 +205,7 @@ BEGIN
 END;
 
 -- Eliminar Foto de Galeria
-CREATE PROCEDURE EliminarFotoGaleria
+CREATE PROCEDURE sp_eliminar_foto_galeria
     @CandidataID INT,
     @FotoID INT
 AS
@@ -206,7 +219,7 @@ END;
 -- ----------------------
 
 -- Registrar Comentario
-CREATE PROCEDURE RegistrarComentario
+CREATE PROCEDURE sp_registrar_comentario
     @texto NVARCHAR(MAX)
 AS
 BEGIN
@@ -223,7 +236,7 @@ BEGIN
 END;
 
 -- Actualizar Comentario
-CREATE PROCEDURE AgregarCandidataComentario
+CREATE PROCEDURE sp_agregar_candidata_comentario
     @UsuarioID INT,
     @CandidataID INT,
     @ComentarioID INT
@@ -243,7 +256,7 @@ BEGIN
 END;
 
 -- Eliminar Comentario
-CREATE PROCEDURE EliminarCandidataComentario
+CREATE PROCEDURE sp_eliminar_candidata_comentario
     @CandidataComentarioID INT
 AS
 BEGIN
@@ -256,7 +269,7 @@ END;
 -- ----------------------
 
 -- Registrar Votacion
-CREATE PROCEDURE RegistrarVotacion
+CREATE PROCEDURE sp_registrar_votacion
     @UsuarioID INT,
     @CandidataID INT,
     @TipoVotacion NVARCHAR(50)
@@ -275,7 +288,7 @@ AS
 END;
 
 
-CREATE PROCEDURE EliminarVotacion
+CREATE PROCEDURE sp_eliminar_votacion
     @VotacionID INT
 AS
 BEGIN
@@ -288,7 +301,7 @@ END;
 -- ----------------------
 
 -- Consultar Votos de una Candidata
-CREATE PROCEDURE ConsultarVotosCandidata
+CREATE PROCEDURE sp_consultar_votos_candidata
     @CandidataID INT
 AS
 BEGIN
@@ -298,7 +311,7 @@ BEGIN
 END;
 
 -- Consultar Cantidad de Comentarios de una Candidata
-CREATE PROCEDURE CantidadComentariosXCandidata
+CREATE PROCEDURE sp_cantidad_comentarios_candidata
     @CandidataID INT
 AS
 BEGIN 
