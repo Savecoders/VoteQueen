@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace UgVoteQueen.BLL
 {
-    public class Usuario
+    partial class Usuario
     {
 
         public int ID { get; set; }
