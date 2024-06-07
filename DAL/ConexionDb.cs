@@ -31,7 +31,7 @@ namespace UgVoteQueen.DAL
         }
 
         // Ejecutar consultas
-        public bool EjecutarConsulta(string consulta, SqlParameter[] parametros)
+        public bool EjecutarProcedure(string consulta, SqlParameter[] parametros)
         {
             try
             {
@@ -39,6 +39,22 @@ namespace UgVoteQueen.DAL
                 SqlCommand command = new SqlCommand(consulta, connection);
                 command.Parameters.AddRange(parametros);
                 command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool EjecutarConsulta(string consulta)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(consulta, connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
                 return true;
             }
             catch
