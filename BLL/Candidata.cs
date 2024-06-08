@@ -9,28 +9,32 @@ namespace UgVoteQueen.BLL
     public class Candidata
     {
         public int ID { get; set; }
-        public string Nombre { get; private set; } = string.Empty;
+        public string Nombre { get; set; } = string.Empty;
 
-        public byte[] FotoPrincipal { get; private set; } = [];
+        public byte[] FotoPrincipal { get; set; } = [];
 
         public int Edad { get; private set; } = 0;
 
-        public string DatosAcademicos { get; private set; } = string.Empty;
+        public string DatosAcademicos { get; set; } = string.Empty;
 
-        public string Pasatiempos { get; private set; } = string.Empty;
+        public string Pasatiempos { get; set; } = string.Empty;
 
-        public string Habilidades { get; private set; } = string.Empty;
+        public string Habilidades { get; set; } = string.Empty;
 
-        public string Intereses { get; private set; } = string.Empty;
+        public string Intereses { get; set; } = string.Empty;
 
         public string Aspiraciones { get; private set; } = string.Empty;
 
+        public List<Foto> GaleriaFotos { get; set; }
+
+        public List<Comentario> Comentarios { get; set; }
+
+
         // Constructor
 
-        public Candidata(string nombre, byte[] fotoPrincipal, int edad, string datosAcademicos, string pasatiempos, string habilidades, string intereses, string aspiraciones)
+        public Candidata(string nombre, int edad, string datosAcademicos, string pasatiempos, string habilidades, string intereses, string aspiraciones)
         {
             SetNombre(nombre);
-            SetFotoPrincipal(fotoPrincipal);
             SetEdad(edad);
             SetDatosAcademicos(datosAcademicos);
             SetPasatiempos(pasatiempos);
@@ -49,15 +53,6 @@ namespace UgVoteQueen.BLL
             Nombre = nombre;
         }
 
-        public void SetFotoPrincipal(byte[] fotoPrincipal)
-        {
-            if (fotoPrincipal.Length == 0)
-            {
-                throw new ArgumentException("La foto principal no puede estar vacia");
-            }
-
-            FotoPrincipal = fotoPrincipal;
-        }
 
         public void SetEdad(int edad)
         {
@@ -117,6 +112,36 @@ namespace UgVoteQueen.BLL
             }
 
             Aspiraciones = aspiraciones;
+        }
+
+        public void SetFotoPrincipal(byte[] foto)
+        {
+            if (foto == null)
+            {
+                throw new ArgumentException("La foto no puede estar vacia");
+            }
+
+            FotoPrincipal = foto;
+        }
+
+        public void AgregarFotoGaleria(Foto foto)
+        {
+            if (foto == null)
+            {
+                throw new ArgumentException("La foto no puede estar vacia");
+            }
+
+            GaleriaFotos.Add(foto);
+        }
+
+        public void AgregarComentario(Comentario comentario)
+        {
+            if (comentario == null)
+            {
+                throw new ArgumentException("El comentario no puede estar vacio");
+            }
+
+            Comentarios.Add(comentario);
         }
 
     }

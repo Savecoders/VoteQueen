@@ -5,20 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
+
 namespace UgVoteQueen.BLL
 {
-    partial class Usuario
+    public class Usuario
     {
 
         public int ID { get; set; }
-
-        public string Nombre { get; private set; } = string.Empty;
-
-        public string Correo { get; private set; } = string.Empty;
-
-        public string Contrasena { get; private set; } = string.Empty;
-
+        public string Nombre { get; set; } = string.Empty;
+        public string Correo { get; set; } = string.Empty;
+        public string Contrasena { get; set; } = string.Empty;
         public byte[] FotoPerfil { get; set; } = [];
+        public Rol Rol { get; set; }
+
 
         // Constructor
         public Usuario(string nombre, string correo, string contrasena)
@@ -82,7 +81,9 @@ namespace UgVoteQueen.BLL
         }
 
 
-        [GeneratedRegex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]")]
-        private static partial Regex Simbolos();
+        private static Regex Simbolos()
+        {
+            return new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+        }
     }
 }

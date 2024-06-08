@@ -6,37 +6,51 @@ using System.Threading.Tasks;
 
 namespace UgVoteQueen.BLL
 {
+    public enum TipoVotacion
+    {
+        MissFotogenia,
+        MissFMC,
+    }
+
     public class Votacion
     {
         public int ID { get; set; }
-        public int CandidataID { get; private set; } = 0;
-        public int UsuarioID { get; private set; } = 0;
-        public DateTime Fecha { get; private set; } = DateTime.Now;
+        public Usuario Usuario { get; set; }
+        public Candidata Candidata { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
+        public TipoVotacion TipoVotacion { get; set; }
 
-        public Votacion(int candidataID, int usuarioID)
+        public Votacion(Usuario usuario, Candidata candidata, TipoVotacion tipoVotacion)
         {
-            SetCandidataID(candidataID);
-            SetUsuarioID(usuarioID);
+            SetUsuario(usuario);
+            SetCandidata(candidata);
+            SetTipoVotacion(tipoVotacion);
         }
 
-        public void SetCandidataID(int candidataID)
+        public void SetUsuario(Usuario usuario)
         {
-            if (candidataID <= 0)
+            if (usuario == null)
             {
-                throw new ArgumentException("La candidata no puede ser menor o igual a 0");
+                throw new ArgumentException("El usuario no puede ser nulo");
             }
 
-            CandidataID = candidataID;
+            Usuario = usuario;
         }
 
-        public void SetUsuarioID(int usuarioID)
+        public void SetCandidata(Candidata candidata)
         {
-            if (usuarioID <= 0)
+            if (candidata == null)
             {
-                throw new ArgumentException("El usuario no puede ser menor o igual a 0");
+                throw new ArgumentException("La candidata no puede ser nula");
             }
 
-            UsuarioID = usuarioID;
-        }   
+            Candidata = candidata;
+        }
+
+        public void SetTipoVotacion(TipoVotacion tipoVotacion)
+        {
+            TipoVotacion = tipoVotacion;
+        }
+
     }
 }

@@ -9,9 +9,9 @@ namespace UgVoteQueen.BLL
     public class Comentario
     {
         public int ID { get; set; }
-        public int CandidataID { get; private set; } = 0;
         public string Texto { get; private set; } = string.Empty;
         public DateTime Fecha { get; private set; } = DateTime.Now;
+        public Usuario UsuarioComentario { get; set; }
 
         public Comentario(string texto)
         {
