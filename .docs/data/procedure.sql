@@ -151,8 +151,9 @@ END;
 -- ----------------------
 
 -- Registrar Foto
-CREATE PROCEDURE sp_registrar_foto
+CREATE PROCEDURE sp_registrar_foto_galeria
     @Imagen VARBINARY(MAX)
+    @CandidataID INT,
 AS
 BEGIN
     INSERT INTO Foto (
@@ -161,6 +162,18 @@ BEGIN
     VALUES (
         @Imagen
     )
+
+    SELECT SCOPE_IDENTITY() AS FotoID
+
+    INSERT INTO Galeria_Fotos (
+        CandidataID,
+        FotoID
+    )
+    VALUES (
+        @CandidataID,
+        SCOPE_IDENTITY()
+    )
+
 END;
 
 -- Actualizar Foto
@@ -188,21 +201,7 @@ END;
 -- Galeria_Fotos
 -- ----------------------
 
--- Agregar Foto a Galeria
-CREATE PROCEDURE sp_agregar_foto_galeria
-    @CandidataID INT,
-    @FotoID INT
-AS
-BEGIN
-    INSERT INTO Galeria_Fotos (
-        CandidataID,
-        FotoID
-    )
-    VALUES (
-        @CandidataID,
-        @FotoID
-    )
-END;
+
 
 -- Eliminar Foto de Galeria
 CREATE PROCEDURE sp_eliminar_foto_galeria
