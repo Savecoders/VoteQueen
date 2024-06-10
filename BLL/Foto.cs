@@ -9,15 +9,20 @@ namespace UgVoteQueen.BLL
     public class Foto
     {
         public int ID { get; set; }
-        public required byte[] Imagen { get; set; }
+        private byte[] imagen = [];
 
-        public void SetImagen(byte[] imagen)
+        public byte[] Imagen
         {
-            if (imagen == null)
+            get { return imagen; }
+            set
             {
-                throw new ArgumentException("La imagen no puede estar vacia");
+                if (value == null)
+                {
+                    throw new ArgumentException("Tiene que recibir una imagen");
+                }
+
+                imagen = value;
             }
-            Imagen = imagen;
         }
     }
 }

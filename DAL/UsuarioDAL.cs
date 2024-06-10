@@ -4,8 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Server;
+using Microsoft.Data.SqlClient;
+using UgVoteQueen.BLL;
 
 
 namespace UgVoteQueen.DAL
@@ -19,49 +20,42 @@ namespace UgVoteQueen.DAL
         }
 
         public bool RegistrarEstudiante(
-            string nombre,
-            string correo,
-            string contrasena,
-            byte[] fotoPerfil
+            Usuario usuario
         )
         {
             // consulta procedure
             string consulta = "sp_registrar_estudiante";
 
             SqlParameter[] parametros = [
-                new SqlParameter("@Nombre", nombre),
-                new SqlParameter("@Correo", correo),
-                new SqlParameter("@Contrasena", contrasena),
-                new SqlParameter("@FotoPerfil", fotoPerfil)
+                new SqlParameter("@Nombre", usuario.Nombre),
+                new SqlParameter("@Correo", usuario.Correo),
+                new SqlParameter("@Contrasena", usuario.Contrasena),
+                new SqlParameter("@FotoPerfil", usuario.FotoPerfil)
             ];
 
             // ejecutar consulta
             return conexion.EjecutarProcedure(consulta, parametros);
         }
 
-        public DataSet LoginUsuario(string correo, string contrasena)
+        public DataSet LoginUsuario(Usuario usuario)
         {
-            string query = "SELECT * FROM Usuario WHERE Correo = (Correo) AND Contrasena = (Contrasena)" + "VALUES (" + correo + "," + contrasena + ")";
+            string query = "SELECT * FROM Usuario WHERE Correo = (Correo) AND Contrasena = (Contrasena)" + "VALUES (" + usuario.Correo + "," + usuario.Contrasena + ")";
             return conexion.EjecutarConsultaSelect(query);
         }
 
         public bool ActualizarEstudiante(
-            int id,
-            string nombre,
-            string correo,
-            string contrasena,
-            byte[] fotoPerfil
+            Usuario usuario
         )
         {
             // consulta procedure
             string consulta = "sp_actualizar_estudiante";
 
             SqlParameter[] parametros = [
-                new SqlParameter("@Id", id),
-                new SqlParameter("@Nombre", nombre),
-                new SqlParameter("@Correo", correo),
-                new SqlParameter("@Contrasena", contrasena),
-                new SqlParameter("@FotoPerfil", fotoPerfil)
+                new SqlParameter("@Id", usuario.ID),
+                new SqlParameter("@Nombre", usuario.Nombre),
+                new SqlParameter("@Correo", usuario.Correo),
+                new SqlParameter("@Contrasena", usuario.Contrasena),
+                new SqlParameter("@FotoPerfil", usuario.FotoPerfil)
             ];
 
             // ejecutar consulta

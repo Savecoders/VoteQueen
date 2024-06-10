@@ -9,23 +9,27 @@ namespace UgVoteQueen.BLL
     public class Comentario
     {
         public int ID { get; set; }
-        public string Texto { get; private set; } = string.Empty;
-        public DateTime Fecha { get; private set; } = DateTime.Now;
+        private string texto;
+        public DateTime Fecha { get; set; }
         public Usuario UsuarioComentario { get; set; }
 
         public Comentario(string texto)
         {
-            SetTexto(texto);
+            Texto = texto;
         }
 
-        public void SetTexto(string texto)
+        public string Texto
         {
-            if (string.IsNullOrWhiteSpace(texto))
+            get { return texto; }
+            set
             {
-                throw new ArgumentException("El comentario no puede estar vacio");
-            }
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("El comentario no puede estar vacio");
+                }
 
-            Texto = texto;
+                texto = value;
+            }
         }
 
     }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Server;
+using UgVoteQueen.BLL;
 
 namespace UgVoteQueen.DAL
 {
@@ -20,28 +21,21 @@ namespace UgVoteQueen.DAL
         }
 
         public bool Registrar(
-            string Nombre,
-            byte[] FotoPrincipal,
-            int edad,
-            string DatosAcademicos,
-            string Pasatiempos,
-            string Habilidades,
-            string Intereses,
-            string Aspiraciones
+            Candidata candidata
         )
         {
             // consulta procedure
             string consulta = "sp_registrar_candidata";
 
             SqlParameter[] parametros = [
-                new SqlParameter("@Nombre", Nombre),
-                new SqlParameter("@FotoPrincipal", FotoPrincipal),
-                new SqlParameter("@Edad", edad),
-                new SqlParameter("@DatosAcademicos", DatosAcademicos),
-                new SqlParameter("@Pasatiempos", Pasatiempos),
-                new SqlParameter("@Habilidades", Habilidades),
-                new SqlParameter("@Intereses", Intereses),
-                new SqlParameter("@Aspiraciones", Aspiraciones)
+                new SqlParameter("@Nombre", candidata.Nombre),
+                new SqlParameter("@FotoPrincipal", candidata.FotoPrincipal),
+                new SqlParameter("@Edad", candidata.Edad),
+                new SqlParameter("@DatosAcademicos", candidata.DatosAcademicos),
+                new SqlParameter("@Pasatiempos", candidata.Pasatiempos),
+                new SqlParameter("@Habilidades", candidata.Habilidades),
+                new SqlParameter("@Intereses", candidata.Intereses),
+                new SqlParameter("@Aspiraciones", candidata.Aspiraciones)
             ];
 
             // ejecutar consulta
@@ -49,30 +43,22 @@ namespace UgVoteQueen.DAL
         }
 
         public bool Actualizar(
-            int Id,
-            string Nombre,
-            byte[] FotoPrincipal,
-            int edad,
-            string DatosAcademicos,
-            string Pasatiempos,
-            string Habilidades,
-            string Intereses,
-            string Aspiraciones
+            Candidata candidata
         )
         {
             // consulta procedure
             string consulta = "sp_actualizar_candidata";
 
             SqlParameter[] parametros = [
-                new SqlParameter("@Id", Id),
-                new SqlParameter("@Nombre", Nombre),
-                new SqlParameter("@FotoPrincipal", FotoPrincipal),
-                new SqlParameter("@Edad", edad),
-                new SqlParameter("@DatosAcademicos", DatosAcademicos),
-                new SqlParameter("@Pasatiempos", Pasatiempos),
-                new SqlParameter("@Habilidades", Habilidades),
-                new SqlParameter("@Intereses", Intereses),
-                new SqlParameter("@Aspiraciones", Aspiraciones)
+                new SqlParameter("@Id", candidata.ID),
+                new SqlParameter("@Nombre", candidata.Nombre),
+                new SqlParameter("@FotoPrincipal", candidata.FotoPrincipal),
+                new SqlParameter("@Edad", candidata.Edad),
+                new SqlParameter("@DatosAcademicos", candidata.DatosAcademicos),
+                new SqlParameter("@Pasatiempos", candidata.Pasatiempos),
+                new SqlParameter("@Habilidades", candidata.Habilidades),
+                new SqlParameter("@Intereses", candidata.Intereses),
+                new SqlParameter("@Aspiraciones", candidata.Aspiraciones)
             ];
 
             // ejecutar consulta
@@ -95,6 +81,12 @@ namespace UgVoteQueen.DAL
         public DataSet Buscar(int Id)
         {
             string query = "SELECT * FROM Candidata WHERE CandidataID = " + Id;
+            return conexion.EjecutarConsultaSelect(query);
+        }
+
+        public DataSet Buscar(string Nombre)
+        {
+            string query = "SELECT * FROM Candidata WHERE Nombre = " + Nombre;
             return conexion.EjecutarConsultaSelect(query);
         }
 

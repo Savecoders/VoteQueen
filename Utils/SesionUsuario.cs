@@ -1,3 +1,5 @@
+using UgVoteQueen.BLL;
+
 namespace UgVoteQueen.Helpers
 {
     public static class SesionUsuario
@@ -6,5 +8,6 @@ namespace UgVoteQueen.Helpers
         public static string Nombre { get; set; } = string.Empty;
         public static string Correo { get; set; } = string.Empty;
         public static byte[] FotoPerfil { get; set; } = [];
+        public static Rol Rol { get; set; }
     }
 }

@@ -6,51 +6,52 @@ using System.Threading.Tasks;
 
 namespace UgVoteQueen.BLL
 {
-    public enum TipoVotacion
-    {
-        MissFotogenia,
-        MissFMC,
-    }
-
     public class Votacion
     {
         public int ID { get; set; }
-        public Usuario Usuario { get; set; }
-        public Candidata Candidata { get; set; }
+        private Usuario usuario;
+        private Candidata candidata;
         public DateTime Fecha { get; set; } = DateTime.Now;
         public TipoVotacion TipoVotacion { get; set; }
 
-        public Votacion(Usuario usuario, Candidata candidata, TipoVotacion tipoVotacion)
+        public Votacion(Usuario usuario, Candidata candidata, TipoVotacion tipoVotacion, DateTime fecha)
         {
-            SetUsuario(usuario);
-            SetCandidata(candidata);
-            SetTipoVotacion(tipoVotacion);
-        }
-
-        public void SetUsuario(Usuario usuario)
-        {
-            if (usuario == null)
-            {
-                throw new ArgumentException("El usuario no puede ser nulo");
-            }
-
             Usuario = usuario;
-        }
-
-        public void SetCandidata(Candidata candidata)
-        {
-            if (candidata == null)
-            {
-                throw new ArgumentException("La candidata no puede ser nula");
-            }
-
             Candidata = candidata;
+            TipoVotacion = tipoVotacion;
+            Fecha = fecha;
         }
 
-        public void SetTipoVotacion(TipoVotacion tipoVotacion)
+
+        public Usuario Usuario
         {
-            TipoVotacion = tipoVotacion;
+            get { return usuario; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("El usuario no puede ser nulo");
+                }
+
+                usuario = value;
+            }
         }
+
+        public Candidata Candidata
+        {
+            get { return candidata; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("La candidata no puede ser nula");
+                }
+
+                candidata = value;
+            }
+        }
+
+
 
     }
 }
