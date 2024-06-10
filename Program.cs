@@ -1,3 +1,5 @@
+using UgVoteQueen.PL;
+
 namespace UgVoteQueen
 {
     internal static class Program
