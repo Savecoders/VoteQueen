@@ -31,6 +31,16 @@ namespace UgVoteQueen.BLL
                     throw new ArgumentException("El nombre no puede estar vacio");
                 }
 
+                if (value.Length > 60)
+                {
+                    throw new ArgumentException("El nombre no puede tener mas de 50 caracteres");
+                }
+
+                if (value.Length < 3)
+                {
+                    throw new ArgumentException("El nombre no puede tener menos de 3 caracteres");
+                }
+
                 nombre = value;
             }
         }
@@ -60,6 +70,11 @@ namespace UgVoteQueen.BLL
                     throw new ArgumentException("Los datos academicos no pueden estar vacios");
                 }
 
+                if (value.Length > 100)
+                {
+                    throw new ArgumentException("Los datos academicos no pueden tener mas de 200 caracteres");
+                }
+
                 datosAcademicos = value;
             }
         }
@@ -72,6 +87,11 @@ namespace UgVoteQueen.BLL
                 if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Los pasatiempos no pueden estar vacios");
+                }
+
+                if (value.Length > 50)
+                {
+                    throw new ArgumentException("Los pasatiempos no pueden tener mas de 50 caracteres");
                 }
 
                 pasatiempos = value;
@@ -88,6 +108,11 @@ namespace UgVoteQueen.BLL
                     throw new ArgumentException("Las habilidades no pueden estar vacias");
                 }
 
+                if (value.Length > 50)
+                {
+                    throw new ArgumentException("Las habilidades no pueden tener mas de 50 caracteres");
+                }
+
                 habilidades = value;
             }
         }
@@ -100,6 +125,11 @@ namespace UgVoteQueen.BLL
                 if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Los intereses no pueden estar vacios");
+                }
+
+                if (value.Length > 50)
+                {
+                    throw new ArgumentException("Los intereses no pueden tener mas de 50 caracteres");
                 }
 
                 intereses = value;
@@ -117,6 +147,11 @@ namespace UgVoteQueen.BLL
                 if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Las aspiraciones no pueden estar vacias");
+                }
+
+                if (value.Length > 80)
+                {
+                    throw new ArgumentException("Las aspiraciones no pueden tener mas de 80 caracteres");
                 }
 
                 aspiraciones = value;
