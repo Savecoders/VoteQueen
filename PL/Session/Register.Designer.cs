@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             flowLayoutPanel1 = new FlowLayoutPanel();
             lLabel = new Label();
             LNombre = new Label();
@@ -39,8 +41,9 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             lIngresarImagen = new Label();
             BtnSubirImagen = new Button();
-            btnLogin = new Button();
+            BtnRegister = new Button();
             LLSesion = new LinkLabel();
+            notifyIcon1 = new NotifyIcon(components);
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
@@ -58,7 +61,7 @@
             flowLayoutPanel1.Controls.Add(LPassword);
             flowLayoutPanel1.Controls.Add(BoxPassword);
             flowLayoutPanel1.Controls.Add(flowLayoutPanel2);
-            flowLayoutPanel1.Controls.Add(btnLogin);
+            flowLayoutPanel1.Controls.Add(BtnRegister);
             flowLayoutPanel1.Controls.Add(LLSesion);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(330, 10);
@@ -98,6 +101,7 @@
             // 
             BoxNombre.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BoxNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BoxNombre.ForeColor = Color.FromArgb(15, 23, 42);
             BoxNombre.Location = new Point(53, 171);
             BoxNombre.Margin = new Padding(3, 20, 3, 3);
             BoxNombre.Multiline = true;
@@ -123,7 +127,7 @@
             // 
             BoxCorreo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BoxCorreo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BoxCorreo.ForeColor = Color.FromArgb(224, 224, 224);
+            BoxCorreo.ForeColor = Color.FromArgb(15, 23, 42);
             BoxCorreo.Location = new Point(53, 271);
             BoxCorreo.Margin = new Padding(3, 20, 3, 3);
             BoxCorreo.Multiline = true;
@@ -190,6 +194,7 @@
             // 
             BtnSubirImagen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnSubirImagen.AutoSize = true;
+            BtnSubirImagen.Cursor = Cursors.Hand;
             BtnSubirImagen.FlatStyle = FlatStyle.Flat;
             BtnSubirImagen.Location = new Point(151, 0);
             BtnSubirImagen.Margin = new Padding(0);
@@ -198,33 +203,36 @@
             BtnSubirImagen.TabIndex = 0;
             BtnSubirImagen.Text = "Subir Foto de Perfil";
             BtnSubirImagen.UseVisualStyleBackColor = true;
+            BtnSubirImagen.Click += BtnSubirImagen_Click;
             // 
-            // btnLogin
+            // BtnRegister
             // 
-            btnLogin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnLogin.AutoSize = true;
-            btnLogin.BackColor = Color.FromArgb(12, 23, 42);
-            btnLogin.BackgroundImageLayout = ImageLayout.Center;
-            btnLogin.Cursor = Cursors.Hand;
-            btnLogin.FlatAppearance.BorderColor = Color.FromArgb(12, 23, 42);
-            btnLogin.FlatAppearance.BorderSize = 3;
-            btnLogin.FlatAppearance.MouseDownBackColor = Color.FromArgb(12, 23, 42);
-            btnLogin.FlatAppearance.MouseOverBackColor = Color.FromArgb(12, 23, 42);
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(53, 503);
-            btnLogin.Margin = new Padding(3, 20, 3, 20);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(420, 50);
-            btnLogin.TabIndex = 0;
-            btnLogin.Text = "Iniciar Sesion";
-            btnLogin.UseVisualStyleBackColor = false;
+            BtnRegister.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BtnRegister.AutoSize = true;
+            BtnRegister.BackColor = Color.FromArgb(12, 23, 42);
+            BtnRegister.BackgroundImageLayout = ImageLayout.Center;
+            BtnRegister.Cursor = Cursors.Hand;
+            BtnRegister.FlatAppearance.BorderColor = Color.FromArgb(12, 23, 42);
+            BtnRegister.FlatAppearance.BorderSize = 3;
+            BtnRegister.FlatAppearance.MouseDownBackColor = Color.FromArgb(12, 23, 42);
+            BtnRegister.FlatAppearance.MouseOverBackColor = Color.FromArgb(12, 23, 42);
+            BtnRegister.FlatStyle = FlatStyle.Flat;
+            BtnRegister.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnRegister.ForeColor = Color.White;
+            BtnRegister.Location = new Point(53, 503);
+            BtnRegister.Margin = new Padding(3, 20, 3, 20);
+            BtnRegister.Name = "BtnRegister";
+            BtnRegister.Size = new Size(420, 50);
+            BtnRegister.TabIndex = 0;
+            BtnRegister.Text = "Registrate";
+            BtnRegister.UseVisualStyleBackColor = false;
+            BtnRegister.Click += btnRegister;
             // 
             // LLSesion
             // 
             LLSesion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             LLSesion.AutoSize = true;
+            LLSesion.Cursor = Cursors.Hand;
             LLSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LLSesion.LinkColor = Color.FromArgb(4, 121, 246);
             LLSesion.Location = new Point(53, 573);
@@ -236,6 +244,11 @@
             LLSesion.Text = "Estudiante si ya te registrate Inicia Sesion";
             LLSesion.TextAlign = ContentAlignment.MiddleCenter;
             LLSesion.LinkClicked += LLSesion_LinkClicked;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
+            notifyIcon1.Visible = true;
             // 
             // Register
             // 
@@ -264,10 +277,11 @@
         private TextBox BoxNombre;
         private Label LPassword;
         private TextBox BoxPassword;
-        private Button btnLogin;
+        private Button BtnRegister;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label lIngresarImagen;
         private Button BtnSubirImagen;
         private LinkLabel LLSesion;
+        private NotifyIcon notifyIcon1;
     }
 }
