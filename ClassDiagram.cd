@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="UgVoteQueen.BLL.Candidata">
+    <Position X="3" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAABAIBAgACAQAASkEAAChCAAgAAgAMAAAABAAA=</HashCode>
+      <FileName>BLL\Candidata.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Comentarios" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UgVoteQueen.BLL.Comentario">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <Members>
+      <Method Name="Comentario" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAEAAAQBAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL\Comentario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UsuarioComentario" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UgVoteQueen.BLL.Foto">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL\Foto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UgVoteQueen.BLL.Usuario">
+    <Position X="13.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgALAAAACgAAAAIAAAgCAAAAAAAAIAAA=</HashCode>
+      <FileName>BLL\Usuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Rol" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UgVoteQueen.BLL.Votacion">
+    <Position X="8" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAEAAAAAAAAAAAABAAQAAQAEAgAAAAA=</HashCode>
+      <FileName>BLL\Votacion.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="candidata" />
+      <Field Name="usuario" />
+      <Property Name="TipoVotacion" />
+      <Property Name="Candidata" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;">
+    <Position X="9.25" Y="10" Width="3.25" />
+    <NestedTypes>
+      <Class Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="UgVoteQueen.BLL.Rol">
+    <Position X="17" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABACA=</HashCode>
+      <FileName>BLL\Rol.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="UgVoteQueen.BLL.TipoVotacion" Collapsed="true">
+    <Position X="10.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL\TipoVotacion.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
