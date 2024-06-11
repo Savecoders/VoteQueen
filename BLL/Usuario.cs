@@ -18,6 +18,11 @@ namespace UgVoteQueen.BLL
         public byte[] FotoPerfil { get; set; } = [];
         public Rol Rol { get; set; }
 
+        // Constructor
+        public Usuario()
+        {
+        }
+
         public Usuario(string nombre, string correo, string contrasena, Rol rol, byte[] fotoPerfil)
         {
             Nombre = nombre;

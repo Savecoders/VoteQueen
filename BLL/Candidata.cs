@@ -17,7 +17,7 @@ namespace UgVoteQueen.BLL
         private string intereses;
         private string aspiraciones;
         public byte[] FotoPrincipal { get; set; } = [];
-        public List<Foto> GaleriaFotos { get; set; }
+        public Galeria GaleriaFotos { get; set; }
         public List<Comentario> Comentarios { get; set; }
 
 
@@ -162,7 +162,7 @@ namespace UgVoteQueen.BLL
 
         // Constructor
 
-        public Candidata(string nombre, int edad, string datosAcademicos, string pasatiempos, string habilidades, string intereses, string aspiraciones)
+        public Candidata(string nombre, int edad, string datosAcademicos, string pasatiempos, string habilidades, string intereses, string aspiraciones, Galeria galeriaFotos)
         {
             Nombre = nombre;
             Edad = edad;
@@ -171,6 +171,7 @@ namespace UgVoteQueen.BLL
             Habilidades = habilidades;
             Intereses = intereses;
             Aspiraciones = aspiraciones;
+            GaleriaFotos = galeriaFotos;
         }
 
 
@@ -184,15 +185,6 @@ namespace UgVoteQueen.BLL
             FotoPrincipal = foto;
         }
 
-        public void AgregarFotoGaleria(Foto foto)
-        {
-            if (foto == null)
-            {
-                throw new ArgumentException("La foto no puede estar vacia");
-            }
-
-            GaleriaFotos.Add(foto);
-        }
 
         public void AgregarComentario(Comentario comentario)
         {
@@ -203,6 +195,5 @@ namespace UgVoteQueen.BLL
 
             Comentarios.Add(comentario);
         }
-
     }
 }
