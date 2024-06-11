@@ -36,9 +36,14 @@ namespace UgVoteQueen.DAL
             try
             {
 
-                SqlCommand command = new SqlCommand(consulta, connection);
+                SqlCommand command = new SqlCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = consulta;
+                command.Connection = connection;
+                command.Connection.Open();
                 command.Parameters.AddRange(parametros);
                 command.ExecuteNonQuery();
+                command.Connection.Close();
                 return true;
             }
             catch
