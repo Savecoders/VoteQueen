@@ -31,8 +31,8 @@
             btnRegister = new Button();
             btnLogin = new Button();
             lLabel = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            BoxCorreo = new TextBox();
+            BoxPassword = new TextBox();
             label1 = new Label();
             label2 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
@@ -95,32 +95,32 @@
             lLabel.TextAlign = ContentAlignment.TopCenter;
             lLabel.Click += lLabel_Click;
             // 
-            // textBox1
+            // BoxCorreo
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(53, 151);
-            textBox1.Margin = new Padding(3, 20, 3, 3);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "correo@ug.ud.ec";
-            textBox1.Size = new Size(420, 36);
-            textBox1.TabIndex = 3;
-            textBox1.WordWrap = false;
-            textBox1.TextChanged += textBox1_TextChanged;
+            BoxCorreo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BoxCorreo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BoxCorreo.Location = new Point(53, 151);
+            BoxCorreo.Margin = new Padding(3, 20, 3, 3);
+            BoxCorreo.Multiline = true;
+            BoxCorreo.Name = "BoxCorreo";
+            BoxCorreo.PlaceholderText = "correo@ug.ud.ec";
+            BoxCorreo.Size = new Size(420, 36);
+            BoxCorreo.TabIndex = 3;
+            BoxCorreo.WordWrap = false;
+            BoxCorreo.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // BoxPassword
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(53, 251);
-            textBox2.Margin = new Padding(3, 20, 3, 3);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(420, 36);
-            textBox2.TabIndex = 4;
-            textBox2.WordWrap = false;
+            BoxPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BoxPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BoxPassword.Location = new Point(53, 251);
+            BoxPassword.Margin = new Padding(3, 20, 3, 3);
+            BoxPassword.Multiline = true;
+            BoxPassword.Name = "BoxPassword";
+            BoxPassword.PasswordChar = '*';
+            BoxPassword.Size = new Size(420, 36);
+            BoxPassword.TabIndex = 4;
+            BoxPassword.WordWrap = false;
             // 
             // label1
             // 
@@ -151,9 +151,9 @@
             flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel1.Controls.Add(lLabel);
             flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Controls.Add(BoxCorreo);
             flowLayoutPanel1.Controls.Add(label2);
-            flowLayoutPanel1.Controls.Add(textBox2);
+            flowLayoutPanel1.Controls.Add(BoxPassword);
             flowLayoutPanel1.Controls.Add(btnLogin);
             flowLayoutPanel1.Controls.Add(btnRegister);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
@@ -184,8 +184,8 @@
         private Button btnRegister;
         private Button btnLogin;
         private Label lLabel;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox BoxCorreo;
+        private TextBox BoxPassword;
         private Label label1;
         private Label label2;
         private FlowLayoutPanel flowLayoutPanel1;
