@@ -63,6 +63,8 @@ CREATE TABLE Galeria_Fotos (
     GaleriaID INT PRIMARY KEY IDENTITY,
     CandidataID INT NOT NULL,
     FotoID INT NOT NULL,
+    Titulo NVARCHAR(100),
+    Descripcion NVARCHAR(MAX),
     FOREIGN KEY (CandidataID) REFERENCES Candidata(CandidataID),
     FOREIGN KEY (FotoID) REFERENCES Foto(FotoID)
 );

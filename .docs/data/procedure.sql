@@ -4,7 +4,6 @@
 -- Registrar Estudiantes
 
 -- Login Estudiante
-
 CREATE PROCEDURE sp_login_estudiante
     @Correo NVARCHAR(100),
     @Contrasena NVARCHAR(100)
@@ -22,29 +21,50 @@ CREATE PROCEDURE sp_registrar_estudiante
     @FotoPerfil VARBINARY(MAX)
 AS
 BEGIN
-    INSERT INTO Usuario (
-        Nombre,
-        Correo,
-        Contrasena,
-        FotoPerfil
-    )
-    VALUES (
-        @Nombre,
-        @Correo,
-        @Contrasena,
-        @FotoPerfil
-        )
-    
-    INSERT INTO UsuarioRol (
-        UsuarioID,
-        RolID
-    )
-    VALUES (
-        SCOPE_IDENTITY(),
-        2
-    )
+
+    TRY 
+        BEGIN TRANSACTION T1
+            INSERT INTO Usuario (
+                Nombre,
+                Correo,
+                Contrasena,
+                FotoPerfil
+            )
+            VALUES (
+                @Nombre,
+                @Correo,
+                @Contrasena,
+                @FotoPerfil
+            )
+
+            INSERT INTO UsuarioRol (
+                UsuarioID,
+                RolID
+            )
+            VALUES (
+                SCOPE_IDENTITY(),
+                2
+            )
+
+            SAVE TRANSACTION T1
+            COMMIT TRANSACTION T1
+    END TRY
+
+    BEGIN CATCH
+        ROLLBACK TRANSACTION T1
+    END CATCH
+
 END;
 GO
+
+CREATE PROCEDURE sp_existe_estudiante
+    @Correo NVARCHAR(100)
+AS
+BEGIN
+    SELECT COUNT(*) AS Existe
+    FROM Usuario
+    WHERE Correo = @Correo
+END;
 
 -- Actualizar Estudiante
 CREATE PROCEDURE sp_actualizar_estudiante
@@ -151,6 +171,20 @@ END;
 -- ----------------------
 
 -- Registrar Foto
+CREATE PROCEDURE sp_registrar_foto
+    @Imagen VARBINARY(MAX)
+AS
+BEGIN
+    INSERT INTO Foto (
+        Imagen
+    )
+    VALUES (
+        @Imagen
+    )
+END;
+
+
+-- Registrar Foto-Galeria
 CREATE PROCEDURE sp_registrar_foto_galeria
     @Imagen VARBINARY(MAX)
     @CandidataID INT,
@@ -201,12 +235,48 @@ END;
 -- Galeria_Fotos
 -- ----------------------
 
+-- Registrar Galeria
+CREATE PROCEDURE sp_registrar_galeria
+    @CandidataID INT,
+    @FotoID INT,
+    @Titulo NVARCHAR(100),
+    @Descripcion NVARCHAR(MAX)
+AS
+BEGIN
+    INSERT INTO Galeria_Fotos (
+        CandidataID,
+        FotoID,
+        Titulo,
+        Descripcion
+    )
+    VALUES (
+        @CandidataID,
+        @FotoID,
+        @Titulo,
+        @Descripcion
+    )
+END;
+
+-- Actualizar Galeria
+CREATE PROCEDURE sp_actualizar_galeria
+    @CandidataID INT,
+    @FotoID INT,
+    @Titulo NVARCHAR(100),
+    @Descripcion NVARCHAR(MAX)
+AS
+BEGIN
+    UPDATE Galeria_Fotos
+    SET
+        Titulo = @Titulo,
+        Descripcion = @Descripcion
+    WHERE CandidataID = @CandidataID AND FotoID = @FotoID
+END;
 
 
 -- Eliminar Foto de Galeria
 CREATE PROCEDURE sp_eliminar_foto_galeria
     @CandidataID INT,
-    @FotoID INT
+    @FotoID INT,
 AS
 BEGIN
     DELETE FROM Galeria_Fotos
