@@ -1,3 +1,7 @@
+USE UgQueenDatabase
+GO
+
+
 -- ----------------------
 -- Usuario Estudiante
 -- ----------------------
@@ -13,6 +17,7 @@ BEGIN
     FROM Usuario
     WHERE Correo = @Correo AND Contrasena = @Contrasena
 END;
+GO
 
 CREATE PROCEDURE sp_registrar_estudiante
     @Nombre NVARCHAR(100),
@@ -20,9 +25,7 @@ CREATE PROCEDURE sp_registrar_estudiante
     @Contrasena NVARCHAR(100),
     @FotoPerfil VARBINARY(MAX)
 AS
-BEGIN
-
-    TRY 
+BEGIN TRY 
         BEGIN TRANSACTION T1
             INSERT INTO Usuario (
                 Nombre,
@@ -46,16 +49,14 @@ BEGIN
                 2
             )
 
-            SAVE TRANSACTION T1
-            COMMIT TRANSACTION T1
+            SAVE TRANSACTION T1;
+            COMMIT TRANSACTION T1;
     END TRY
-
     BEGIN CATCH
-        ROLLBACK TRANSACTION T1
-    END CATCH
-
-END;
+        ROLLBACK TRANSACTION T1;
+    END CATCH;
 GO
+
 
 CREATE PROCEDURE sp_existe_estudiante
     @Correo NVARCHAR(100)
@@ -65,6 +66,7 @@ BEGIN
     FROM Usuario
     WHERE Correo = @Correo
 END;
+GO
 
 -- Actualizar Estudiante
 CREATE PROCEDURE sp_actualizar_estudiante
@@ -83,6 +85,7 @@ BEGIN
         FotoPerfil = @FotoPerfil
     WHERE UsuarioID = @UsuarioID
 END;
+GO
 
 -- Eliminar Estudiante
 CREATE PROCEDURE sp_eliminar_estudiante
@@ -92,6 +95,7 @@ BEGIN
     DELETE FROM Usuario
     WHERE UsuarioID = @UsuarioID
 END;
+GO
 
 -- ----------------------
 -- Candidata
@@ -130,6 +134,7 @@ BEGIN
         @Aspiraciones
 )
 END;
+GO
 
 -- Actualizar Candidata
 CREATE PROCEDURE sp_actualizar_candidata
@@ -156,6 +161,7 @@ BEGIN
         Aspiraciones = @Aspiraciones
     WHERE CandidataID = @CandidataID
 END;
+GO
 
 -- Eliminar Candidata
 CREATE PROCEDURE sp_eliminar_candidata
@@ -165,6 +171,7 @@ BEGIN
     DELETE FROM Candidata
     WHERE CandidataID = @CandidataID
 END;
+GO
 
 -- ----------------------
 -- Foto
@@ -182,12 +189,13 @@ BEGIN
         @Imagen
     )
 END;
+GO
 
 
 -- Registrar Foto-Galeria
 CREATE PROCEDURE sp_registrar_foto_galeria
-    @Imagen VARBINARY(MAX)
-    @CandidataID INT,
+    @Imagen VARBINARY(MAX),
+    @CandidataID INT
 AS
 BEGIN
     INSERT INTO Foto (
@@ -209,6 +217,7 @@ BEGIN
     )
 
 END;
+GO
 
 -- Actualizar Foto
 CREATE PROCEDURE sp_actualizar_foto
@@ -221,6 +230,7 @@ BEGIN
         IMAGEN = @Imagen
     WHERE FotoID = @FotoID
 END;
+GO
 
 -- Eliminar Foto
 CREATE PROCEDURE sp_eliminar_foto
@@ -230,6 +240,7 @@ BEGIN
     DELETE FROM Foto
     WHERE FotoID = @FotoID
 END;
+GO
 
 -- ----------------------
 -- Galeria_Fotos
@@ -256,6 +267,7 @@ BEGIN
         @Descripcion
     )
 END;
+GO
 
 -- Actualizar Galeria
 CREATE PROCEDURE sp_actualizar_galeria
@@ -271,17 +283,19 @@ BEGIN
         Descripcion = @Descripcion
     WHERE CandidataID = @CandidataID AND FotoID = @FotoID
 END;
+GO
 
 
 -- Eliminar Foto de Galeria
 CREATE PROCEDURE sp_eliminar_foto_galeria
     @CandidataID INT,
-    @FotoID INT,
+    @FotoID INT
 AS
 BEGIN
     DELETE FROM Galeria_Fotos
     WHERE CandidataID = @CandidataID AND FotoID = @FotoID
 END;
+GO
 
 -- ----------------------
 -- Comentario
@@ -303,6 +317,7 @@ BEGIN
         SAVE TRANSACTION T1
         COMMIT TRANSACTION T1
 END;
+GO
 
 -- Actualizar Comentario
 CREATE PROCEDURE sp_agregar_candidata_comentario
@@ -321,8 +336,8 @@ BEGIN
         @CandidataID,
         @ComentarioID
     )
-
 END;
+GO
 
 -- Eliminar Comentario
 CREATE PROCEDURE sp_eliminar_candidata_comentario
@@ -332,6 +347,7 @@ BEGIN
     DELETE FROM CandidataComentario
     WHERE CandidataComentarioID = @CandidataComentarioID
 END;
+GO
 
 -- ----------------------
 -- Votacion
@@ -355,6 +371,7 @@ AS
             @TipoVotacion
         )
 END;
+GO
 
 
 CREATE PROCEDURE sp_eliminar_votacion
@@ -364,6 +381,7 @@ BEGIN
     DELETE FROM Votacion
     WHERE VotacionID = @VotacionID
 END;
+GO
 
 -- ----------------------
 -- Consultas
@@ -378,6 +396,7 @@ BEGIN
     FROM Votacion
     WHERE CandidataID = @CandidataID
 END;
+GO
 
 -- Consultar Cantidad de Comentarios de una Candidata
 CREATE PROCEDURE sp_cantidad_comentarios_candidata
@@ -388,3 +407,4 @@ BEGIN
     FROM CandidataComentario
     WHERE CandidataID = @CandidataID
 END;
+GO

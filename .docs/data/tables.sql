@@ -19,7 +19,8 @@ GO
 CREATE TABLE Rol (
     RolID INT PRIMARY KEY IDENTITY,
     NombreRol NVARCHAR(50) NOT NULL UNIQUE
-);
+)
+GO
 
 -- Usuario
 CREATE TABLE Usuario (
@@ -28,7 +29,8 @@ CREATE TABLE Usuario (
     Correo NVARCHAR(100) NOT NULL UNIQUE,
     Contrasena NVARCHAR(100) NOT NULL,
     FotoPerfil VARBINARY(MAX)
-);
+)
+GO
 
 -- UsuarioRol
 CREATE TABLE UsuarioRol (
@@ -37,7 +39,9 @@ CREATE TABLE UsuarioRol (
     PRIMARY KEY (UsuarioID, RolID),
     FOREIGN KEY (UsuarioID) REFERENCES Usuario(UsuarioID),
     FOREIGN KEY (RolID) REFERENCES Rol(RolID)
-);
+)
+
+GO
 
 -- Creación de la tabla Candidata
 CREATE TABLE Candidata (
@@ -50,13 +54,17 @@ CREATE TABLE Candidata (
     Habilidades NVARCHAR(MAX),
     Intereses NVARCHAR(MAX),
     Aspiraciones NVARCHAR(MAX)
-);
+)
+
+GO
 
 -- Foto
 CREATE TABLE Foto (
     FotoID INT PRIMARY KEY IDENTITY,
     Imagen VARBINARY(MAX) NOT NULL
-);
+)
+
+GO
 
 -- Galeria_Fotos
 CREATE TABLE Galeria_Fotos (
@@ -67,7 +75,9 @@ CREATE TABLE Galeria_Fotos (
     Descripcion NVARCHAR(MAX),
     FOREIGN KEY (CandidataID) REFERENCES Candidata(CandidataID),
     FOREIGN KEY (FotoID) REFERENCES Foto(FotoID)
-);
+)
+
+GO
 
 -- Comentario
 
@@ -77,6 +87,8 @@ CREATE TABLE Comentario(
 	texto NVARCHAR(MAX) NOT NULL,
 	FechaComentario DATETIME NOT NULL DEFAULT GETDATE()
 )
+
+GO
 
 -- CandidataComentario
 CREATE TABLE CandidataComentario(
@@ -89,6 +101,8 @@ CREATE TABLE CandidataComentario(
     FOREIGN KEY (ComentarioID) REFERENCES Comentario(ComentarioID)
 )
 
+GO
+
 -- Votacion
 CREATE TABLE Votacion (
     VotacionID INT PRIMARY KEY IDENTITY,
@@ -98,11 +112,14 @@ CREATE TABLE Votacion (
     FechaVotacion DATETIME NOT NULL DEFAULT GETDATE(),
     FOREIGN KEY (UsuarioID) REFERENCES Usuario(UsuarioID),
     FOREIGN KEY (CandidataID) REFERENCES Candidata(CandidataID)
-);
+)
+
+GO
 
 
 -- Index
-CREATE INDEX IDX_Votacion_TipoVotacion ON Votacion(TipoVotacion);
+CREATE INDEX IDX_Votacion_TipoVotacion ON Votacion(TipoVotacion)
+GO
 
 -- roles Administrador - Estudiante
 INSERT INTO Rol (NombreRol) VALUES ('Administrador');
