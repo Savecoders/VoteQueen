@@ -68,25 +68,33 @@ namespace UgVoteQueen.PL.Session
                 UsuarioDAL usuarioDAL = new UsuarioDAL();
 
                 // Crear sesion
-                var dataSet =  usuarioDAL.LoginUsuario(usuario);
+                DataSet dataSet =  usuarioDAL.LoginUsuario(usuario);
+                MessageBox.Show("Entra" + (dataSet.Tables[0].Rows.Count > 0) + "");
 
-                if (dataSet != null || dataSet.Tables.Count > 0) {
-                    MessageBox.Show("Si esta cargado");
+                if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    // Primera Tabla
+                    DataTable tabla = dataSet.Tables[0];
+
+                    // Primera Fila
+                    DataRow fila = tabla.Rows[0];
+
+
+                    // Sesion Statica de Usuario
+                    SesionUsuario.Id = Convert.ToInt32(fila["UsuarioID"]);
+                    SesionUsuario.Nombre = fila["Nombre"].ToString();
+                    SesionUsuario.Correo = fila["Correo"].ToString();
+                    SesionUsuario.FotoPerfil = (byte[])fila["FotoPerfil"];
+
+                    // Mensaje a Usuario
+                    MessageBox.Show("Bienvenido " + SesionUsuario.Nombre, "Inicio de Sesion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                SesionUsuario.Id = Convert.ToInt32(dataSet.Tables[0].Rows[0]["UsuarioID "]);
-                SesionUsuario.Nombre = dataSet.Tables[0].Rows[0]["Nombre"].ToString();
-                SesionUsuario.Correo = dataSet.Tables[0].Rows[0]["Correo"].ToString();
-                SesionUsuario.FotoPerfil = (byte[])dataSet.Tables[0].Rows[0]["FotoPerfil"];
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Porfavor llene los campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                MessageBox.Show("Bienvenido", SesionUsuario.Nombre, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }

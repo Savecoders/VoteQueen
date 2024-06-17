@@ -23,6 +23,12 @@ namespace UgVoteQueen.DAL
             Usuario usuario
         )
         {
+
+            if(this.UsuarioExiste(usuario))
+            {
+                throw new Exception("El usuario ya existe");
+            }
+
             // consulta procedure
             string consulta = "sp_registrar_estudiante";
 
@@ -39,7 +45,7 @@ namespace UgVoteQueen.DAL
 
         public DataSet LoginUsuario(Usuario usuario)
         {
-            string query = "SELECT * FROM Usuario WHERE Correo = (Correo) AND Contrasena = (Contrasena)" + "VALUES (" + usuario.Correo + "," + usuario.Contrasena + ")";
+            string query = "SELECT * FROM Usuario WHERE Correo = '" + usuario.Correo + "' AND Contrasena = '" + usuario.Contrasena + "'";
             return conexion.EjecutarConsultaSelect(query);
         }
 
@@ -60,6 +66,12 @@ namespace UgVoteQueen.DAL
 
             // ejecutar consulta
             return conexion.EjecutarProcedure(consulta, parametros);
+        }
+
+        public bool UsuarioExiste(Usuario usuario)
+        {
+            string query = "SELECT * FROM Usuario WHERE Correo = '" + usuario.Correo + "'";
+            return conexion.EjecutarConsulta(query);
         }
 
     }

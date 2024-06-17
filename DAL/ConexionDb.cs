@@ -74,11 +74,12 @@ namespace UgVoteQueen.DAL
             DataSet dataSet = new DataSet();
             try
             {
-                SqlCommand command = new(consulta, connection);
-                SqlDataAdapter adapter = new(command);
-                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.CommandType = CommandType.Text;
+                command.Connection = connection;
+                command.CommandText = consulta;
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(dataSet);
-                connection.Close();
                 return dataSet;
 
             }
