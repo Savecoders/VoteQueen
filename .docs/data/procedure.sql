@@ -195,25 +195,16 @@ GO
 -- Registrar Foto-Galeria
 CREATE PROCEDURE sp_registrar_foto_galeria
     @Imagen VARBINARY(MAX),
-    @CandidataID INT
+    GaleriaID INT
 AS
 BEGIN
     INSERT INTO Foto (
         Imagen
+        GaleriaID
     )
     VALUES (
         @Imagen
-    )
-
-    SELECT SCOPE_IDENTITY() AS FotoID
-
-    INSERT INTO Galeria_Fotos (
-        CandidataID,
-        FotoID
-    )
-    VALUES (
-        @CandidataID,
-        SCOPE_IDENTITY()
+        GaleriaID
     )
 
 END;
@@ -249,20 +240,17 @@ GO
 -- Registrar Galeria
 CREATE PROCEDURE sp_registrar_galeria
     @CandidataID INT,
-    @FotoID INT,
     @Titulo NVARCHAR(100),
     @Descripcion NVARCHAR(MAX)
 AS
 BEGIN
     INSERT INTO Galeria_Fotos (
         CandidataID,
-        FotoID,
         Titulo,
         Descripcion
     )
     VALUES (
         @CandidataID,
-        @FotoID,
         @Titulo,
         @Descripcion
     )
@@ -272,7 +260,6 @@ GO
 -- Actualizar Galeria
 CREATE PROCEDURE sp_actualizar_galeria
     @CandidataID INT,
-    @FotoID INT,
     @Titulo NVARCHAR(100),
     @Descripcion NVARCHAR(MAX)
 AS
@@ -281,7 +268,7 @@ BEGIN
     SET
         Titulo = @Titulo,
         Descripcion = @Descripcion
-    WHERE CandidataID = @CandidataID AND FotoID = @FotoID
+    WHERE CandidataID = @CandidataID
 END;
 GO
 

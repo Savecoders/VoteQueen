@@ -21,24 +21,41 @@ namespace UgVoteQueen.DAL
 
         public bool RegistrarFotoGaleria(
             Foto foto,
-            int CandidataID
+            int GaleriaID
         )
         {
             string consulta = "sp_registrar_foto_galeria";
 
             SqlParameter[] parametros = [
                 new SqlParameter("@Nombre", foto.Imagen),
-                new SqlParameter("@CandidataID", CandidataID)
+                new SqlParameter("@GaleriaID", GaleriaID)
             ];
 
             return conexion.EjecutarProcedure(consulta, parametros);
         }
 
-        public DataSet ObtenerGaleriasFoto()
+        public bool ActualizarFoto(
+            int FotoID,
+            Foto nuevaFoto
+
+        )
         {
-            string consulta = "SELECT * FROM GaleriaFoto";
+            string consulta = "sp_actualizar_foto";
+
+            SqlParameter[] parametros = [
+                new SqlParameter("@FotoID", FotoID),
+                new SqlParameter("@Imagen", nuevaFoto.Imagen)
+            ];
+
+            return conexion.EjecutarProcedure(consulta, parametros);
+        }
+
+        public DataSet ObtenerFotosGaleria(Galeria galeria)
+        {
+            string consulta = "SELECT * FROM Foto WHERE GaleriaID = '" + galeria.ID + "'";
             return conexion.EjecutarConsultaSelect(consulta);
         }
+
 
     }
 }
