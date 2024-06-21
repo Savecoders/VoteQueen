@@ -29,5 +29,10 @@ namespace UgVoteQueen.PL
             RegisterPanel.SetPanels(PanelPrincipal, LoginPanel);
             utils.ReplacePanelContent(PanelPrincipal, LoginPanel);
         }
+
+        private void PanelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

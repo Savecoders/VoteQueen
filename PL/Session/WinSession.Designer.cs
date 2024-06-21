@@ -38,6 +38,7 @@
             PanelPrincipal.Name = "PanelPrincipal";
             PanelPrincipal.Size = new Size(1184, 661);
             PanelPrincipal.TabIndex = 0;
+            PanelPrincipal.Paint += PanelPrincipal_Paint;
             // 
             // WinSession
             // 
