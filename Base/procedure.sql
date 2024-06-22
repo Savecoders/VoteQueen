@@ -13,8 +13,8 @@ CREATE PROCEDURE sp_login_estudiante
     @Contrasena NVARCHAR(100)
 AS
 BEGIN
-    SELECT UsuarioID, Nombre, Correo, FotoPerfil
-    FROM Usuario
+    SELECT EstudianteID, Nombre, Correo, FotoPerfil, Matricula
+    FROM Estudiante
     WHERE Correo = @Correo AND Contrasena = @Contrasena
 END;
 GO
@@ -23,30 +23,24 @@ CREATE PROCEDURE sp_registrar_estudiante
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
     @Contrasena NVARCHAR(100),
-    @FotoPerfil VARBINARY(MAX)
+    @FotoPerfil VARBINARY(MAX),
+    @Matricula NVARCHAR(100)
 AS
 BEGIN TRY 
         BEGIN TRANSACTION T1
-            INSERT INTO Usuario (
+            INSERT INTO Estudiante (
                 Nombre,
                 Correo,
                 Contrasena,
-                FotoPerfil
+                FotoPerfil,
+                Matricula
             )
             VALUES (
                 @Nombre,
                 @Correo,
                 @Contrasena,
-                @FotoPerfil
-            )
-
-            INSERT INTO UsuarioRol (
-                UsuarioID,
-                RolID
-            )
-            VALUES (
-                SCOPE_IDENTITY(),
-                2
+                @FotoPerfil,
+                @Matricula
             )
 
             SAVE TRANSACTION T1;
@@ -63,39 +57,116 @@ CREATE PROCEDURE sp_existe_estudiante
 AS
 BEGIN
     SELECT COUNT(*) AS Existe
-    FROM Usuario
+    FROM Estudiante
     WHERE Correo = @Correo
 END;
 GO
 
 -- Actualizar Estudiante
 CREATE PROCEDURE sp_actualizar_estudiante
-    @UsuarioID INT,
+    @EstudianteID INT,
     @Nombre NVARCHAR(100),
     @Correo NVARCHAR(100),
     @Contrasena NVARCHAR(100),
     @FotoPerfil VARBINARY(MAX)
 AS
 BEGIN
-    UPDATE Usuario
+    UPDATE Estudiante
     SET
         Nombre = @Nombre,
         Correo = @Correo,
         Contrasena = @Contrasena,
         FotoPerfil = @FotoPerfil
-    WHERE UsuarioID = @UsuarioID
+    WHERE EstudianteID = @EstudianteID
 END;
 GO
 
 -- Eliminar Estudiante
 CREATE PROCEDURE sp_eliminar_estudiante
-    @UsuarioID INT
+    @EstudianteID INT
 AS
 BEGIN
-    DELETE FROM Usuario
-    WHERE UsuarioID = @UsuarioID
+    DELETE FROM Estudiante
+    WHERE EstudianteID = @EstudianteID
 END;
 GO
+
+-- ----------------------
+-- Usuario Administrador
+-- ----------------------
+
+-- Login Administrador
+CREATE PROCEDURE sp_login_administrador
+    @Correo NVARCHAR(100),
+    @Contrasena NVARCHAR(100)
+AS
+BEGIN
+    SELECT AdministradorID, Nombre, Correo, FotoPerfil, Cargo
+    FROM Administrador
+    WHERE Correo = @Correo AND Contrasena = @Contrasena
+END;
+
+GO
+
+-- Registrar Administrador
+CREATE PROCEDURE sp_registrar_administrador
+    @Nombre NVARCHAR(100),
+    @Correo NVARCHAR(100),
+    @Contrasena NVARCHAR(100),
+    @FotoPerfil VARBINARY(MAX),
+    @Cargo NVARCHAR(100)
+AS
+BEGIN
+    INSERT INTO Administrador (
+        Nombre,
+        Correo,
+        Contrasena,
+        FotoPerfil,
+        Cargo
+    )
+    VALUES (
+        @Nombre,
+        @Correo,
+        @Contrasena,
+        @FotoPerfil,
+        @Cargo
+    )
+END;
+
+GO
+
+-- Actualizar Administrador
+CREATE PROCEDURE sp_actualizar_administrador
+    @AdministradorID INT,
+    @Nombre NVARCHAR(100),
+    @Correo NVARCHAR(100),
+    @Contrasena NVARCHAR(100),
+    @FotoPerfil VARBINARY(MAX),
+    @Cargo NVARCHAR(100)
+
+AS
+BEGIN
+    UPDATE Administrador
+    SET
+        Nombre = @Nombre,
+        Correo = @Correo,
+        Contrasena = @Contrasena,
+        FotoPerfil = @FotoPerfil,
+        Cargo = @Cargo
+    WHERE AdministradorID = @AdministradorID
+END;
+
+GO
+
+-- Existe Administrador
+CREATE PROCEDURE sp_existe_administrador
+    @Correo NVARCHAR(100)
+AS
+BEGIN
+    SELECT COUNT(*) AS Existe
+    FROM Administrador
+    WHERE Correo = @Correo
+END;
 
 -- ----------------------
 -- Candidata
@@ -110,7 +181,8 @@ CREATE PROCEDURE sp_registrar_candidata
     @Pasatiempos NVARCHAR(MAX),
     @Habilidades NVARCHAR(MAX),
     @Intereses NVARCHAR(MAX),
-    @Aspiraciones NVARCHAR(MAX)
+    @Aspiraciones NVARCHAR(MAX),
+    @AdministradorID INT
 AS
 BEGIN
     INSERT INTO Candidata (
@@ -121,7 +193,8 @@ BEGIN
         Pasatiempos,
         Habilidades,
         Intereses,
-        Aspiraciones
+        Aspiraciones,
+        AdministradorID
     )
     VALUES (
         @Nombre,
@@ -131,7 +204,8 @@ BEGIN
         @Pasatiempos,
         @Habilidades,
         @Intereses,
-        @Aspiraciones
+        @Aspiraciones,
+        @AdministradorID
 )
 END;
 GO
@@ -290,15 +364,21 @@ GO
 
 -- Registrar Comentario
 CREATE PROCEDURE sp_registrar_comentario
-    @texto NVARCHAR(MAX)
+    @texto NVARCHAR(MAX),
+    @EstudianteID INT,
+    @CandidataID INT
 AS
 BEGIN
     BEGIN TRANSACTION T1
         INSERT INTO Comentario (
-            texto
+            texto,
+            EstudianteID,
+            CandidataID
         )
         VALUES (
-            @texto
+            @texto,
+            @EstudianteID,
+            @CandidataID
         )
 
         SAVE TRANSACTION T1
@@ -307,34 +387,28 @@ END;
 GO
 
 -- Actualizar Comentario
-CREATE PROCEDURE sp_agregar_candidata_comentario
-    @UsuarioID INT,
-    @CandidataID INT,
-    @ComentarioID INT
+CREATE PROCEDURE sp_actualizar_comentario
+    @ComentarioID INT,
+    @texto NVARCHAR(MAX)
 AS
-BEGIN 
-    INSERT INTO CandidataComentario (
-        UsuarioID,
-        CandidataID,
-        ComentarioID
-    )
-    VALUES (
-        @UsuarioID,
-        @CandidataID,
-        @ComentarioID
-    )
+BEGIN
+    UPDATE Comentario
+    SET
+        texto = @texto
+        FechaComentario = GETDATE()
+    WHERE ComentarioID = @ComentarioID
 END;
+
 GO
 
 -- Eliminar Comentario
-CREATE PROCEDURE sp_eliminar_candidata_comentario
-    @CandidataComentarioID INT
+CREATE PROCEDURE sp_eliminar_comentario
+    @ComentarioID INT
 AS
 BEGIN
-    DELETE FROM CandidataComentario
-    WHERE CandidataComentarioID = @CandidataComentarioID
+    DELETE FROM Comentario
+    WHERE ComentarioID = @ComentarioID
 END;
-GO
 
 -- ----------------------
 -- Votacion
@@ -342,18 +416,18 @@ GO
 
 -- Registrar Votacion
 CREATE PROCEDURE sp_registrar_votacion
-    @UsuarioID INT,
+    @EstudianteID INT,
     @CandidataID INT,
     @TipoVotacion NVARCHAR(50)
 AS 
     BEGIN
         INSERT INTO Votacion (
-            UsuarioID,
+            EstudianteID,
             CandidataID,
             TipoVotacion
         )
         VALUES (
-            @UsuarioID,
+            @EstudianteID,
             @CandidataID,
             @TipoVotacion
         )
