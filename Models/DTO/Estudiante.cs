@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 
-namespace UgVoteQueen.Models
+namespace UgVoteQueen.Models.DTO
 {
     public class Estudiante : Persona
     {
 
-        private byte[] fotoPerfil = [];
         private string matricula;
 
 
@@ -26,20 +25,15 @@ namespace UgVoteQueen.Models
             string contrasena,
             byte[] fotoPerfil,
             string matricula
-        ) : base(nombre, correo, contrasena)
+        ) : base(nombre, correo, contrasena, fotoPerfil)
         {
-            FotoPerfil = fotoPerfil;
             Matricula = matricula;
         }
 
 
         // getters y setters
 
-        public byte[] FotoPerfil
-        {
-            get { return fotoPerfil; }
-            set { fotoPerfil = value; }
-        }
+
 
         public string Matricula
         {

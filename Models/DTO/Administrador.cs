@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 
-namespace UgVoteQueen.Models
+namespace UgVoteQueen.Models.DTO
 {
     public class Administrador : Persona
     {
 
-        private byte[] fotoPerfil = [];
-        private string matricula;
+        private string cargo;
 
 
         // Constructor
@@ -25,33 +24,26 @@ namespace UgVoteQueen.Models
             string correo,
             string contrasena,
             byte[] fotoPerfil,
-            string matricula
-        ) : base(nombre, correo, contrasena)
+            string cargo
+        ) : base(nombre, correo, contrasena, fotoPerfil)
         {
-            FotoPerfil = fotoPerfil;
-            Matricula = matricula;
+            Cargo = cargo;
         }
 
 
         // getters y setters
 
-        public byte[] FotoPerfil
+        public string Cargo
         {
-            get { return fotoPerfil; }
-            set { fotoPerfil = value; }
-        }
-
-        public string Matricula
-        {
-            get { return matricula; }
+            get { return cargo; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("La matricula no puede estar vacia");
+                    throw new ArgumentException("El cargo no puede estar vacia");
                 }
 
-                matricula = value;
+                cargo = value;
             }
 
         }

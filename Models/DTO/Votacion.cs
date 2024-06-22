@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UgVoteQueen.Models.DTO;
 
-namespace UgVoteQueen.BLL
+namespace UgVoteQueen.Models.DTO
 {
     public class Votacion
     {
         public int ID { get; set; }
-        private Usuario usuario;
+        private Estudiante usuario;
         private Candidata candidata;
         public DateTime Fecha { get; set; } = DateTime.Now;
         public TipoVotacion TipoVotacion { get; set; }
 
-        public Votacion(Usuario usuario, Candidata candidata, TipoVotacion tipoVotacion, DateTime fecha)
+        public Votacion(Estudiante usuario, Candidata candidata, TipoVotacion tipoVotacion, DateTime fecha)
         {
             Usuario = usuario;
             Candidata = candidata;
@@ -23,7 +24,7 @@ namespace UgVoteQueen.BLL
         }
 
 
-        public Usuario Usuario
+        public Estudiante Usuario
         {
             get { return usuario; }
             set

@@ -1,5 +1,5 @@
 
-namespace UgVoteQueen.BLL
+namespace UgVoteQueen.Models.DTO
 {
 
     public enum TipoVotacion

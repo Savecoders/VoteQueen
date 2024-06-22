@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UgVoteQueen.Models;
 
-namespace UgVoteQueen.BLL
+namespace UgVoteQueen.Models.DTO
 {
     public class Comentario
     {
         public int ID { get; set; }
         private string texto;
         public DateTime Fecha { get; set; }
-        public Usuario UsuarioComentario { get; set; }
+        public Estudiante EstudianteComentario { get; set; }
 
         public Comentario(string texto)
         {

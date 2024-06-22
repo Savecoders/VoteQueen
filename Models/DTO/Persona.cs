@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 
-namespace UgVoteQueen.Models
+namespace UgVoteQueen.Models.DTO
 {
     public class Persona
     {
@@ -18,6 +18,8 @@ namespace UgVoteQueen.Models
 
         private string contrasena;
 
+        private byte[] fotoPerfil = [];
+
         // Constructor
         public Persona()
         {
@@ -26,12 +28,14 @@ namespace UgVoteQueen.Models
         public Persona(
             string nombre,
             string correo,
-            string contrasena
+            string contrasena,
+            byte[] fotoPerfil
         )
         {
             Nombre = nombre;
             Correo = correo;
             Contrasena = contrasena;
+            FotoPerfil = fotoPerfil;
         }
 
 
@@ -106,6 +110,11 @@ namespace UgVoteQueen.Models
             }
         }
 
+        public byte[] FotoPerfil
+        {
+            get { return fotoPerfil; }
+            set { fotoPerfil = value; }
+        }
 
         public override string ToString()
         {
