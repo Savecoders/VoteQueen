@@ -10,11 +10,11 @@ using UgVoteQueen.BLL;
 
 namespace UgVoteQueen.DAL
 {
-    class GaleriaFotoDAL
+    class GaleriaController
     {
         private readonly ConexionDb conexion;
 
-        public GaleriaFotoDAL()
+        public GaleriaController()
         {
             conexion = new ConexionDb();
         }

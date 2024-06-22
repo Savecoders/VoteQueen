@@ -6,33 +6,36 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 
-namespace UgVoteQueen.BLL
+namespace UgVoteQueen.Models
 {
-    public class Usuario
+    public class Persona
     {
-
         public int ID { get; set; }
-        private string nombre = string.Empty;
-        private string correo = string.Empty;
-        private string contrasena = string.Empty;
-        public byte[] FotoPerfil { get; set; } = [];
-        public Rol Rol { get; set; }
+
+        private string nombre;
+
+        private string correo;
+
+        private string contrasena;
 
         // Constructor
-        public Usuario()
+        public Persona()
         {
         }
 
-        public Usuario(string nombre, string correo, string contrasena, Rol rol, byte[] fotoPerfil)
+        public Persona(
+            string nombre,
+            string correo,
+            string contrasena
+        )
         {
             Nombre = nombre;
             Correo = correo;
             Contrasena = contrasena;
-            Rol = rol;
-            FotoPerfil = fotoPerfil;
         }
 
 
+        // getters y setters
         public string Nombre
         {
             get { return nombre; }
@@ -69,6 +72,7 @@ namespace UgVoteQueen.BLL
                 nombre = value;
             }
         }
+
         public string Correo
         {
             get { return correo; }
@@ -82,14 +86,20 @@ namespace UgVoteQueen.BLL
                 correo = value;
             }
         }
+
         public string Contrasena
         {
             get { return contrasena; }
             set
             {
-                if (value.Length < 6)
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("La contraseña debe tener al menos 6 caracteres");
+                    throw new ArgumentException("La contraseña no puede estar vacia");
+                }
+
+                if (value.Length < 8)
+                {
+                    throw new ArgumentException("La contraseña debe tener al menos 8 caracteres");
                 }
 
                 contrasena = value;
@@ -97,10 +107,16 @@ namespace UgVoteQueen.BLL
         }
 
 
+        public override string ToString()
+        {
+            return "Nombre : " + Nombre + " Correo : " + Correo;
+        }
 
         private static Regex Simbolos()
         {
             return new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
         }
+
     }
+
 }

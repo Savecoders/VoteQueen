@@ -10,12 +10,12 @@ using UgVoteQueen.BLL;
 
 namespace UgVoteQueen.DAL
 {
-    class CandidataDAL
+    class CandidataController
     {
 
         private readonly ConexionDb conexion;
 
-        public CandidataDAL()
+        public CandidataController()
         {
             conexion = new ConexionDb();
         }
