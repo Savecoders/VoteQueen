@@ -10,12 +10,12 @@ using UgVoteQueen.Models.DTO;
 
 namespace UgVoteQueen.Models.DAO
 {
-    class CandidataController
+    class CandidataDAO
     {
 
         private readonly ConexionDb conexion;
 
-        public CandidataController()
+        public CandidataDAO()
         {
             conexion = new ConexionDb();
         }
@@ -93,6 +93,14 @@ namespace UgVoteQueen.Models.DAO
         public DataSet ListarCandidatas()
         {
             string query = "SELECT * FROM Candidata";
+            return conexion.EjecutarConsultaSelect(query);
+        }
+
+        public DataSet ListarComentariosCandidata(
+            int CandidataID
+        )
+        {
+            string query = "SELECT * FROM Comentario WHERE CandidataID = " + CandidataID;
             return conexion.EjecutarConsultaSelect(query);
         }
 

@@ -11,11 +11,11 @@ using UgVoteQueen.Models.DTO;
 
 namespace UgVoteQueen.Models.DAO
 {
-    class VotacionDAL
+    class VotacionDAO
     {
         private readonly ConexionDb conexion;
 
-        public VotacionDAL()
+        public VotacionDAO()
         {
             conexion = new ConexionDb();
         }
