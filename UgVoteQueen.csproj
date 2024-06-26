@@ -19,6 +19,7 @@
     <Folder Include="PL\Assets\" />
 	<Folder Include="PL\Components\" />
 	<Folder Include="PL\Session\" />
+	<Folder Include="Views\App\Administrador\" />
   </ItemGroup>
 
   <ItemGroup>
