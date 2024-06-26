@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace UgVoteQueen.Controllers
 {
-    public class GaleriaController
+    public class ComentarioController
     {
 
-        public GaleriaController()
+        public ComentarioController()
         {
 
         }
