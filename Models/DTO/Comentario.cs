@@ -12,7 +12,7 @@ namespace UgVoteQueen.Models.DTO
         public int ID { get; set; }
         private string texto;
         public DateTime Fecha { get; set; }
-        public Estudiante EstudianteComentario { get; set; }
+
 
         public Comentario(string texto)
         {
