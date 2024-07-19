@@ -1,7 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Views\App\Candidatas\CrearComentarioCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\App\Candidatas\DarDeBajaCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\App\Candidatas\CrearCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\App\Candidatas\EditarCandidata.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\App\Candidatas\ListadoCandidatas.cs">
@@ -9,6 +18,12 @@
     </Compile>
     <Compile Update="Views\App\Estudiante\HomeEstudiante.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\App\Galeria\EditarGaleriaForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\App\Galeria\RegistrarGaleriaForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\App\Session\Login.cs">
       <SubType>UserControl</SubType>

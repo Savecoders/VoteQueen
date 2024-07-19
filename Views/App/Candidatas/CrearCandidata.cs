@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UgVoteQueen.Views.App.Candidatas
+namespace PANTALLAS
 {
-    public partial class CrearCandidata : UserControl
+    public partial class FRPERFILCAND : UserControl
     {
-        public CrearCandidata()
+        public FRPERFILCAND()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

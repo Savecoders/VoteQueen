@@ -203,7 +203,7 @@
             BtnSubirImagen.TabIndex = 0;
             BtnSubirImagen.Text = "Subir Foto de Perfil";
             BtnSubirImagen.UseVisualStyleBackColor = true;
-            BtnSubirImagen.Click += BtnSubirImagen_Click;
+            //BtnSubirImagen.Click += BtnSubirImagen_Click;
             // 
             // BtnRegister
             // 

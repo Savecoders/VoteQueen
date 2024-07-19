@@ -1,6 +1,6 @@
 ﻿namespace UgVoteQueen.PL.App
 {
-    partial class HomeEstudiante
+    partial class HomeAdministrador
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeEstudiante));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeAdministrador));
             PanelMenuBar = new Panel();
             button2 = new Button();
             button1 = new Button();
@@ -171,9 +171,10 @@
             LabelNombre.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LabelNombre.Location = new Point(520, 22);
             LabelNombre.Name = "LabelNombre";
-            LabelNombre.Size = new Size(221, 30);
+            LabelNombre.Size = new Size(144, 30);
             LabelNombre.TabIndex = 3;
-            LabelNombre.Text = "Nombre de Estudiante";
+            LabelNombre.Text = "Administrador";
+            LabelNombre.Click += LabelNombre_Click;
             // 
             // panel3
             // 
@@ -192,7 +193,7 @@
             PanelFound.TabIndex = 2;
             PanelFound.Paint += PanelFound_Paint;
             // 
-            // HomeEstudiante
+            // HomeAdministrador
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -200,7 +201,7 @@
             Controls.Add(PanelFound);
             Controls.Add(PanelHeader);
             Controls.Add(PanelMenuBar);
-            Name = "HomeEstudiante";
+            Name = "HomeAdministrador";
             Text = "Home";
             PanelMenuBar.ResumeLayout(false);
             PanelLogo.ResumeLayout(false);

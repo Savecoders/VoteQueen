@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UgVoteQueen.BLL;
 using UgVoteQueen.Common;
-using UgVoteQueen.DAL;
 
 namespace UgVoteQueen.PL.Session
 {
@@ -61,7 +59,7 @@ namespace UgVoteQueen.PL.Session
         {
 
             // Obtener los datos de los campos
-
+            /*
             try
             {
 
@@ -122,6 +120,7 @@ namespace UgVoteQueen.PL.Session
                 lIngresarImagen.ForeColor = Color.Green;
                 lIngresarImagen.Text = "Imagen Cargada";
             }
+        */
         }
     }
 }

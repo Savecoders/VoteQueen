@@ -8,31 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UgVoteQueen.PL.App
+namespace Pantalla_proyecto
 {
-    public partial class HomeEstudiante : Form
+    public partial class EditarCandidata : UserControl
     {
-        public HomeEstudiante()
+        public EditarCandidata()
         {
             InitializeComponent();
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void FlHeader_Paint(object sender, PaintEventArgs e)
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void PanelFound_Paint(object sender, PaintEventArgs e)
+        private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
         }
