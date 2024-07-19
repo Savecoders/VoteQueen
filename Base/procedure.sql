@@ -5,9 +5,9 @@ GO
 -- ----------------------
 -- Usuario Estudiante
 -- ----------------------
+
 -- Registrar Estudiantes
 
--- Login Estudiante
 CREATE PROCEDURE sp_login_estudiante
     @Correo NVARCHAR(100),
     @Contrasena NVARCHAR(100)
@@ -91,6 +91,18 @@ BEGIN
 END;
 GO
 
+-- Obtener Estudiante
+CREATE PROCEDURE sp_buscar_estudiante
+	@Correo NVARCHAR(100)
+AS
+BEGIN
+	SELECT EstudianteID, Nombre, Correo, FotoPerfil, Matricula
+	FROM Estudiante
+	WHERE Correo = @Correo
+END;
+GO
+
+
 -- ----------------------
 -- Usuario Administrador
 -- ----------------------
@@ -105,7 +117,6 @@ BEGIN
     FROM Administrador
     WHERE Correo = @Correo AND Contrasena = @Contrasena
 END;
-
 GO
 
 -- Registrar Administrador
@@ -155,7 +166,6 @@ BEGIN
         Cargo = @Cargo
     WHERE AdministradorID = @AdministradorID
 END;
-
 GO
 
 -- Existe Administrador
@@ -167,6 +177,18 @@ BEGIN
     FROM Administrador
     WHERE Correo = @Correo
 END;
+GO
+
+-- Obtener Administrador
+CREATE PROCEDURE sp_obtener_administrador
+	@Correo NVARCHAR(100)
+AS
+BEGIN
+	SELECT AdministradorID, Nombre, Correo, FotoPerfil, Cargo
+	FROM Administrador
+	WHERE Correo = @Correo
+END;
+GO
 
 -- ----------------------
 -- Candidata
@@ -247,6 +269,28 @@ BEGIN
 END;
 GO
 
+-- Obtener Candidatas
+CREATE PROCEDURE sp_obtener_candidatas
+AS
+BEGIN
+	SELECT CandidataID, Nombre, FotoPrincipal, Edad, DatosAcademicos, Pasatiempos, Habilidades, Intereses, Aspiraciones, AdministradorID
+	FROM Candidata
+END;
+GO
+
+
+-- Obtener Candidata
+CREATE PROCEDURE sp_buscar_candidata
+	@Nombre NVARCHAR(100) 
+AS
+BEGIN
+	SELECT CandidataID, Nombre, FotoPrincipal, Edad, DatosAcademicos, Pasatiempos, Habilidades, Intereses, Aspiraciones, AdministradorID
+	FROM Candidata
+	WHERE Nombre = @Nombre
+END;
+GO
+
+
 -- ----------------------
 -- Foto
 -- ----------------------
@@ -265,22 +309,20 @@ BEGIN
 END;
 GO
 
-
 -- Registrar Foto-Galeria
 CREATE PROCEDURE sp_registrar_foto_galeria
     @Imagen VARBINARY(MAX),
-    GaleriaID INT
+    @GaleriaID INT
 AS
 BEGIN
     INSERT INTO Foto (
-        Imagen
+        Imagen,
         GaleriaID
     )
     VALUES (
-        @Imagen
-        GaleriaID
+        @Imagen,
+        @GaleriaID
     )
-
 END;
 GO
 
@@ -296,6 +338,7 @@ BEGIN
     WHERE FotoID = @FotoID
 END;
 GO
+
 
 -- Eliminar Foto
 CREATE PROCEDURE sp_eliminar_foto
@@ -350,11 +393,23 @@ GO
 -- Eliminar Foto de Galeria
 CREATE PROCEDURE sp_eliminar_foto_galeria
     @CandidataID INT,
-    @FotoID INT
+    @GaleriaID INT
 AS
 BEGIN
     DELETE FROM Galeria_Fotos
-    WHERE CandidataID = @CandidataID AND FotoID = @FotoID
+    WHERE CandidataID = @CandidataID AND GaleriaID = @GaleriaID
+END;
+GO
+
+-- Mostrar Galeria de Candiata
+CREATE PROCEDURE sp_mostrar_imagenes_galeria
+	@CandidataID INT
+AS
+BEGIN
+	SELECT FotoID, Imagen, Galeria_Fotos.Titulo, Galeria_Fotos.Descripcion
+    FROM Foto
+    JOIN Galeria_Fotos ON Foto.GaleriaID = Galeria_Fotos.GaleriaID
+	WHERE Galeria_Fotos.CandidataID = @CandidataID
 END;
 GO
 
@@ -394,11 +449,10 @@ AS
 BEGIN
     UPDATE Comentario
     SET
-        texto = @texto
+        texto = @texto,
         FechaComentario = GETDATE()
     WHERE ComentarioID = @ComentarioID
 END;
-
 GO
 
 -- Eliminar Comentario
@@ -409,6 +463,17 @@ BEGIN
     DELETE FROM Comentario
     WHERE ComentarioID = @ComentarioID
 END;
+GO
+
+CREATE PROCEDURE sp_obtener_comentarios_candidata
+	@CandidataID INT
+AS
+BEGIN
+	SELECT ComentarioID, texto, FechaComentario, EstudianteID, CandidataID
+	FROM Comentario
+	WHERE CandidataID = @CandidataID
+END;
+GO
 
 -- ----------------------
 -- Votacion
@@ -459,13 +524,3 @@ BEGIN
 END;
 GO
 
--- Consultar Cantidad de Comentarios de una Candidata
-CREATE PROCEDURE sp_cantidad_comentarios_candidata
-    @CandidataID INT
-AS
-BEGIN 
-    SELECT COUNT(*) AS CantidadComentarios
-    FROM CandidataComentario
-    WHERE CandidataID = @CandidataID
-END;
-GO
