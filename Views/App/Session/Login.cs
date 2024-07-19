@@ -8,9 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UgVoteQueen.BLL;
 using UgVoteQueen.Common;
-using UgVoteQueen.DAL;
 using UgVoteQueen.Helpers;
 
 namespace UgVoteQueen.PL.Session
@@ -55,7 +53,7 @@ namespace UgVoteQueen.PL.Session
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            /*
             try
             {
 
@@ -96,6 +94,7 @@ namespace UgVoteQueen.PL.Session
             {
                 MessageBox.Show(ex.Message, "Porfavor llene los campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            */
 
         }
 
