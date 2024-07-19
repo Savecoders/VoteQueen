@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeEstudiante));
             PanelMenuBar = new Panel();
-            PanelHeader = new Panel();
-            panel3 = new Panel();
-            PanelLogo = new Panel();
-            BtnCandiatas = new Button();
-            panel2 = new Panel();
-            button1 = new Button();
             button2 = new Button();
-            HambugerBar = new PictureBox();
+            button1 = new Button();
+            PanelLogo = new Panel();
             LabelLogo = new Label();
-            LabelNombre = new Label();
-            PanelFound = new Panel();
+            HambugerBar = new PictureBox();
+            panel2 = new Panel();
+            BtnCandiatas = new Button();
+            PanelHeader = new Panel();
             PicturePerfil = new PictureBox();
+            LabelNombre = new Label();
+            panel3 = new Panel();
+            PanelFound = new Panel();
             PanelMenuBar.SuspendLayout();
-            PanelHeader.SuspendLayout();
             PanelLogo.SuspendLayout();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)HambugerBar).BeginInit();
+            panel2.SuspendLayout();
+            PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicturePerfil).BeginInit();
             SuspendLayout();
             // 
@@ -64,56 +64,19 @@
             PanelMenuBar.TabIndex = 0;
             PanelMenuBar.Paint += panel1_Paint;
             // 
-            // PanelHeader
+            // button2
             // 
-            PanelHeader.BackColor = Color.White;
-            PanelHeader.Controls.Add(PicturePerfil);
-            PanelHeader.Controls.Add(LabelNombre);
-            PanelHeader.Controls.Add(panel3);
-            PanelHeader.Dock = DockStyle.Top;
-            PanelHeader.Location = new Point(242, 0);
-            PanelHeader.Name = "PanelHeader";
-            PanelHeader.Size = new Size(942, 75);
-            PanelHeader.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            panel3.Location = new Point(39, 75);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(945, 588);
-            panel3.TabIndex = 2;
-            // 
-            // PanelLogo
-            // 
-            PanelLogo.Controls.Add(LabelLogo);
-            PanelLogo.Controls.Add(HambugerBar);
-            PanelLogo.Location = new Point(0, 0);
-            PanelLogo.Name = "PanelLogo";
-            PanelLogo.Size = new Size(242, 75);
-            PanelLogo.TabIndex = 0;
-            // 
-            // BtnCandiatas
-            // 
-            BtnCandiatas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BtnCandiatas.Image = (Image)resources.GetObject("BtnCandiatas.Image");
-            BtnCandiatas.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCandiatas.Location = new Point(0, 13);
-            BtnCandiatas.Margin = new Padding(10);
-            BtnCandiatas.Name = "BtnCandiatas";
-            BtnCandiatas.Padding = new Padding(20, 10, 10, 10);
-            BtnCandiatas.Size = new Size(242, 66);
-            BtnCandiatas.TabIndex = 2;
-            BtnCandiatas.Text = "Candidatas";
-            BtnCandiatas.UseVisualStyleBackColor = true;
-            BtnCandiatas.Click += this.BtnCandiatas_Click_1;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(BtnCandiatas);
-            panel2.Location = new Point(0, 75);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(242, 66);
-            panel2.TabIndex = 1;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 597);
+            button2.Margin = new Padding(10);
+            button2.Name = "button2";
+            button2.Padding = new Padding(20, 10, 10, 10);
+            button2.Size = new Size(242, 66);
+            button2.TabIndex = 4;
+            button2.Text = "Cerrar Sesion";
+            button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -129,20 +92,24 @@
             button1.Text = "Configuracion";
             button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // PanelLogo
             // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 597);
-            button2.Margin = new Padding(10);
-            button2.Name = "button2";
-            button2.Padding = new Padding(20, 10, 10, 10);
-            button2.Size = new Size(242, 66);
-            button2.TabIndex = 4;
-            button2.Text = "Cerrar Sesion";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += this.button2_Click;
+            PanelLogo.Controls.Add(LabelLogo);
+            PanelLogo.Controls.Add(HambugerBar);
+            PanelLogo.Location = new Point(0, 0);
+            PanelLogo.Name = "PanelLogo";
+            PanelLogo.Size = new Size(242, 75);
+            PanelLogo.TabIndex = 0;
+            // 
+            // LabelLogo
+            // 
+            LabelLogo.AutoSize = true;
+            LabelLogo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelLogo.Location = new Point(72, 20);
+            LabelLogo.Name = "LabelLogo";
+            LabelLogo.Size = new Size(134, 32);
+            LabelLogo.TabIndex = 1;
+            LabelLogo.Text = "VoteQueen";
             // 
             // HambugerBar
             // 
@@ -154,35 +121,39 @@
             HambugerBar.TabIndex = 0;
             HambugerBar.TabStop = false;
             // 
-            // LabelLogo
+            // panel2
             // 
-            LabelLogo.AutoSize = true;
-            LabelLogo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LabelLogo.Location = new Point(72, 20);
-            LabelLogo.Name = "LabelLogo";
-            LabelLogo.Size = new Size(134, 32);
-            LabelLogo.TabIndex = 1;
-            LabelLogo.Text = "VoteQueen";
-            LabelLogo.Click += this.label1_Click;
+            panel2.Controls.Add(BtnCandiatas);
+            panel2.Location = new Point(0, 75);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(242, 66);
+            panel2.TabIndex = 1;
             // 
-            // LabelNombre
+            // BtnCandiatas
             // 
-            LabelNombre.AutoSize = true;
-            LabelNombre.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LabelNombre.Location = new Point(520, 22);
-            LabelNombre.Name = "LabelNombre";
-            LabelNombre.Size = new Size(221, 30);
-            LabelNombre.TabIndex = 3;
-            LabelNombre.Text = "Nombre de Estudiante";
+            BtnCandiatas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnCandiatas.Image = (Image)resources.GetObject("BtnCandiatas.Image");
+            BtnCandiatas.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnCandiatas.Location = new Point(0, 13);
+            BtnCandiatas.Margin = new Padding(10);
+            BtnCandiatas.Name = "BtnCandiatas";
+            BtnCandiatas.Padding = new Padding(20, 10, 10, 10);
+            BtnCandiatas.Size = new Size(242, 66);
+            BtnCandiatas.TabIndex = 2;
+            BtnCandiatas.Text = "Candidatas";
+            BtnCandiatas.UseVisualStyleBackColor = true;
             // 
-            // PanelFound
+            // PanelHeader
             // 
-            PanelFound.BackColor = Color.White;
-            PanelFound.Dock = DockStyle.Fill;
-            PanelFound.Location = new Point(242, 75);
-            PanelFound.Name = "PanelFound";
-            PanelFound.Size = new Size(942, 586);
-            PanelFound.TabIndex = 2;
+            PanelHeader.BackColor = Color.White;
+            PanelHeader.Controls.Add(PicturePerfil);
+            PanelHeader.Controls.Add(LabelNombre);
+            PanelHeader.Controls.Add(panel3);
+            PanelHeader.Dock = DockStyle.Top;
+            PanelHeader.Location = new Point(242, 0);
+            PanelHeader.Name = "PanelHeader";
+            PanelHeader.Size = new Size(942, 75);
+            PanelHeader.TabIndex = 1;
             // 
             // PicturePerfil
             // 
@@ -194,6 +165,33 @@
             PicturePerfil.TabIndex = 4;
             PicturePerfil.TabStop = false;
             // 
+            // LabelNombre
+            // 
+            LabelNombre.AutoSize = true;
+            LabelNombre.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LabelNombre.Location = new Point(520, 22);
+            LabelNombre.Name = "LabelNombre";
+            LabelNombre.Size = new Size(221, 30);
+            LabelNombre.TabIndex = 3;
+            LabelNombre.Text = "Nombre de Estudiante";
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(39, 75);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(945, 588);
+            panel3.TabIndex = 2;
+            // 
+            // PanelFound
+            // 
+            PanelFound.BackColor = Color.White;
+            PanelFound.Dock = DockStyle.Fill;
+            PanelFound.Location = new Point(242, 75);
+            PanelFound.Name = "PanelFound";
+            PanelFound.Size = new Size(942, 586);
+            PanelFound.TabIndex = 2;
+            PanelFound.Paint += PanelFound_Paint;
+            // 
             // HomeEstudiante
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -204,14 +202,13 @@
             Controls.Add(PanelMenuBar);
             Name = "HomeEstudiante";
             Text = "Home";
-            Load += this.HomeEstudiante_Load;
             PanelMenuBar.ResumeLayout(false);
-            PanelHeader.ResumeLayout(false);
-            PanelHeader.PerformLayout();
             PanelLogo.ResumeLayout(false);
             PanelLogo.PerformLayout();
-            panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)HambugerBar).EndInit();
+            panel2.ResumeLayout(false);
+            PanelHeader.ResumeLayout(false);
+            PanelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PicturePerfil).EndInit();
             ResumeLayout(false);
         }

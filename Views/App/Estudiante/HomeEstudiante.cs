@@ -31,5 +31,10 @@ namespace UgVoteQueen.PL.App
         {
 
         }
+
+        private void PanelFound_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
