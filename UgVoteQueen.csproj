@@ -19,7 +19,6 @@
     <Folder Include="PL\Assets\" />
 	<Folder Include="PL\Components\" />
 	<Folder Include="PL\Session\" />
-	<Folder Include="Views\App\Administrador\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +40,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\App\Administrador\HomeAdministrador.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 
