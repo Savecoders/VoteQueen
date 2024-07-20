@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
 using Microsoft.Data.SqlClient;
-using UgVoteQueen.Models.DTO;
+using Models.DTO;
 
 
-namespace UgVoteQueen.Models.DAO
+namespace Models.DAO
 {
-    class AdministradorDAO
+    public class AdministradorDAO
     {
         private readonly ConexionDb conexion;
         public AdministradorDAO()

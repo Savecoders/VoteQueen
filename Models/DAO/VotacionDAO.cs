@@ -7,11 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Server;
-using UgVoteQueen.Models.DTO;
+using Models.DTO;
 
-namespace UgVoteQueen.Models.DAO
+namespace Models.DAO
 {
-    class VotacionDAO
+    public class VotacionDAO
     {
         private readonly ConexionDb conexion;
 

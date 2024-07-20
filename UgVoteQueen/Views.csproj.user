@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="App\Candidatas\UCrearComentarioCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Candidatas\UDarDeBajaCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Candidatas\UCrearCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Candidatas\UEditarCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Candidatas\UListadoCandidatas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Estudiante\HomeEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="App\Galeria\EditarGaleriaForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Galeria\RegistrarGaleriaForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Session\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Session\Register.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Session\WinSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Components\CardCarndidata.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

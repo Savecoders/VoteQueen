@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Server;
 
-namespace UgVoteQueen.Models.DAO
+namespace Models.DAO
 {
-    internal class ConexionDb
+    public class ConexionDb
     {
         // Reemplazar por la cadena de conexión a la base de datos
         private readonly string _connectionString = "Server=.\\DESARROLLO;Database=UgQueenDataBase;Trusted_Connection=True;Integrated Security=True;TrustServerCertificate=True;";

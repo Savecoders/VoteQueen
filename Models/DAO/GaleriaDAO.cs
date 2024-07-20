@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.SqlServer.Server;
 using Microsoft.Data.SqlClient;
-using UgVoteQueen.Models.DTO;
+using Models.DTO;
 
-namespace UgVoteQueen.Models.DAO
+namespace Models.DAO
 {
-    class GaleriaDAO
+    public class GaleriaDAO
     {
         private readonly ConexionDb conexion;
 

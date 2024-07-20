@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 
-namespace UgVoteQueen.Models.DTO
+namespace Models.DTO
 {
     public class Administrador : Persona
     {

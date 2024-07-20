@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UgVoteQueen.Models;
+using Models;
 
-namespace UgVoteQueen.Models.DTO
+namespace Models.DTO
 {
     public class Comentario
     {
