@@ -11,13 +11,10 @@
   <ItemGroup>
     <Compile Remove=".docs\**" />
     <Compile Remove=".github\**" />
-    <Compile Remove="PL\**" />
     <EmbeddedResource Remove=".docs\**" />
     <EmbeddedResource Remove=".github\**" />
-    <EmbeddedResource Remove="PL\**" />
     <None Remove=".docs\**" />
     <None Remove=".github\**" />
-    <None Remove="PL\**" />
   </ItemGroup>
 
   <ItemGroup>
