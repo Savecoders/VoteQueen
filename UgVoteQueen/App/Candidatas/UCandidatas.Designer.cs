@@ -1,8 +1,8 @@
-﻿namespace UgVoteQueen.Views.Components
+﻿namespace Views.App.Candidatas
 {
-    partial class CardCarndidata
+    partial class UCandidatas
     {
-        /// <summary>
+        /// <summary> 
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -22,13 +22,22 @@
 
         #region Código generado por el Diseñador de componentes
 
-        /// <summary>
+        /// <summary> 
         /// Método necesario para admitir el Diseñador. No se puede modificar
         /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            SuspendLayout();
+            // 
+            // UListadoCandidatas
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Name = "UListadoCandidatas";
+            Size = new Size(942, 598);
+            Load += ListadoCandidatas_Load;
+            ResumeLayout(false);
         }
 
         #endregion

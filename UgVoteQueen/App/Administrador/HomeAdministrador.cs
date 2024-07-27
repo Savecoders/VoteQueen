@@ -15,14 +15,13 @@ namespace Views.App.Administrador
     public partial class HomeAdministrador : Form
     {
 
-        private Utils utils = new Utils();
-        private UListadoCandidatas listadoCandidatas = new UListadoCandidatas();
+        private UCandidatas listadoCandidatas = new UCandidatas();
 
         public HomeAdministrador()
         {
             InitializeComponent();
             listadoCandidatas.SetPanels(PanelFound);
-            utils.ReplacePanelContent(PanelFound, listadoCandidatas);
+            Utils.ReplacePanelContent(PanelFound, listadoCandidatas);
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -46,6 +45,11 @@ namespace Views.App.Administrador
         }
 
         private void LabelNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PicturePerfil_Click(object sender, EventArgs e)
         {
 
         }

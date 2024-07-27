@@ -49,10 +49,10 @@
             // 
             // txtbxcomentario
             // 
-            txtbxcomentario.Location = new Point(264, 230);
+            txtbxcomentario.Location = new Point(259, 308);
             txtbxcomentario.Multiline = true;
             txtbxcomentario.Name = "txtbxcomentario";
-            txtbxcomentario.Size = new Size(508, 155);
+            txtbxcomentario.Size = new Size(513, 77);
             txtbxcomentario.TabIndex = 1;
             // 
             // button1
@@ -70,7 +70,7 @@
             // 
             flowLayoutPanel1.Location = new Point(259, 42);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(513, 161);
+            flowLayoutPanel1.Size = new Size(513, 260);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // lblcandidata
@@ -94,9 +94,9 @@
             // btneditar
             // 
             btneditar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btneditar.Location = new Point(264, 407);
+            btneditar.Location = new Point(259, 407);
             btneditar.Name = "btneditar";
-            btneditar.Size = new Size(176, 31);
+            btneditar.Size = new Size(173, 31);
             btneditar.TabIndex = 7;
             btneditar.Text = "Editar";
             btneditar.UseVisualStyleBackColor = true;

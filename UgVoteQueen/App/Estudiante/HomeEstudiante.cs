@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Views.App.Candidatas;
+using Views.Common;
 
-namespace Views.Estudiante
+namespace Views.App.Estudiante
 {
     public partial class HomeEstudiante : Form
     {
+
+        private UCandidatas listadoCandidatas = new UCandidatas();
+
         public HomeEstudiante()
         {
             InitializeComponent();
+            listadoCandidatas.SetPanels(PanelFound);
+            Utils.ReplacePanelContent(PanelFound, listadoCandidatas);
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -33,6 +40,21 @@ namespace Views.Estudiante
         }
 
         private void PanelFound_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LabelNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PicturePerfil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCandiatas_Click(object sender, EventArgs e)
         {
 
         }

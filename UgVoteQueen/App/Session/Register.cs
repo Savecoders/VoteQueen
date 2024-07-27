@@ -17,7 +17,6 @@ namespace Views.App.Session
         private Panel mainPanel;
         private Login loginPanel;
         private byte[] imagePerfil = [];
-        private Utils utils = new Utils();
 
         public Register()
         {
@@ -52,7 +51,7 @@ namespace Views.App.Session
 
         private void LLSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            utils.ReplacePanelContent(mainPanel, loginPanel);
+            Utils.ReplacePanelContent(mainPanel, loginPanel);
         }
 
         private void btnRegister(object sender, EventArgs e)

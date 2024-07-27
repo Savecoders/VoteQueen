@@ -56,7 +56,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(300, 23);
+            label1.Location = new Point(312, 20);
             label1.Name = "label1";
             label1.Size = new Size(145, 21);
             label1.TabIndex = 3;
@@ -68,16 +68,16 @@
             pictureBox1.Location = new Point(462, 79);
             pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(299, 248);
+            pictureBox1.Size = new Size(299, 264);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            button1.Location = new Point(520, 341);
+            button1.Location = new Point(462, 353);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(157, 22);
+            button1.Size = new Size(299, 35);
             button1.TabIndex = 5;
             button1.Text = "Seleccionar Archivo";
             button1.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(23, 70);
+            label2.Location = new Point(30, 68);
             label2.Name = "label2";
             label2.Size = new Size(118, 15);
             label2.TabIndex = 6;
@@ -104,7 +104,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(15, 108);
+            label3.Location = new Point(31, 107);
             label3.Name = "label3";
             label3.Size = new Size(56, 15);
             label3.TabIndex = 7;
@@ -113,7 +113,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(14, 144);
+            label4.Location = new Point(30, 143);
             label4.Name = "label4";
             label4.Size = new Size(33, 15);
             label4.TabIndex = 8;
@@ -122,16 +122,16 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(14, 217);
+            label5.Location = new Point(30, 216);
             label5.Name = "label5";
-            label5.Size = new Size(74, 15);
+            label5.Size = new Size(52, 15);
             label5.TabIndex = 9;
-            label5.Text = "Pasatiempos";
+            label5.Text = "Facultad";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(13, 254);
+            label6.Location = new Point(29, 253);
             label6.Name = "label6";
             label6.Size = new Size(72, 15);
             label6.TabIndex = 10;
@@ -140,7 +140,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(14, 290);
+            label7.Location = new Point(30, 289);
             label7.Name = "label7";
             label7.Size = new Size(56, 15);
             label7.TabIndex = 11;
@@ -149,7 +149,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(13, 328);
+            label8.Location = new Point(29, 327);
             label8.Name = "label8";
             label8.Size = new Size(66, 15);
             label8.TabIndex = 12;
@@ -157,7 +157,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(100, 106);
+            textBox1.Location = new Point(116, 105);
             textBox1.Margin = new Padding(3, 2, 3, 2);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
@@ -166,7 +166,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(100, 139);
+            textBox2.Location = new Point(116, 138);
             textBox2.Margin = new Padding(3, 2, 3, 2);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
@@ -175,7 +175,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(100, 214);
+            textBox3.Location = new Point(116, 213);
             textBox3.Margin = new Padding(3, 2, 3, 2);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
@@ -184,7 +184,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(100, 254);
+            textBox4.Location = new Point(116, 253);
             textBox4.Margin = new Padding(3, 2, 3, 2);
             textBox4.Name = "textBox4";
             textBox4.ReadOnly = true;
@@ -193,7 +193,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(100, 287);
+            textBox5.Location = new Point(116, 286);
             textBox5.Margin = new Padding(3, 2, 3, 2);
             textBox5.Name = "textBox5";
             textBox5.ReadOnly = true;
@@ -202,7 +202,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(100, 323);
+            textBox6.Location = new Point(116, 322);
             textBox6.Margin = new Padding(3, 2, 3, 2);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
@@ -211,7 +211,7 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(132, 178);
+            textBox7.Location = new Point(148, 177);
             textBox7.Margin = new Padding(3, 2, 3, 2);
             textBox7.Name = "textBox7";
             textBox7.ReadOnly = true;
@@ -221,7 +221,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(10, 180);
+            label9.Location = new Point(26, 179);
             label9.Name = "label9";
             label9.Size = new Size(105, 15);
             label9.TabIndex = 19;
@@ -232,7 +232,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(807, 415);
             Controls.Add(textBox7);
             Controls.Add(label9);
             Controls.Add(textBox6);
@@ -253,7 +252,7 @@
             Controls.Add(label1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCrearCandidata";
-            Text = "Form3";
+            Size = new Size(807, 415);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

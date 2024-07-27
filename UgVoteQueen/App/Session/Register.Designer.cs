@@ -67,8 +67,8 @@
             flowLayoutPanel1.Location = new Point(330, 10);
             flowLayoutPanel1.Margin = new Padding(10);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Padding = new Padding(50);
-            flowLayoutPanel1.Size = new Size(526, 644);
+            flowLayoutPanel1.Padding = new Padding(50, 20, 50, 50);
+            flowLayoutPanel1.Size = new Size(526, 614);
             flowLayoutPanel1.TabIndex = 8;
             // 
             // lLabel
@@ -77,7 +77,7 @@
             lLabel.Dock = DockStyle.Top;
             lLabel.Font = new Font("Yu Gothic UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lLabel.ForeColor = Color.FromArgb(100, 116, 139);
-            lLabel.Location = new Point(53, 50);
+            lLabel.Location = new Point(53, 20);
             lLabel.Margin = new Padding(3, 0, 3, 20);
             lLabel.Name = "lLabel";
             lLabel.Size = new Size(420, 40);
@@ -90,7 +90,7 @@
             LNombre.AutoSize = true;
             LNombre.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             LNombre.ForeColor = Color.FromArgb(12, 23, 42);
-            LNombre.Location = new Point(53, 130);
+            LNombre.Location = new Point(53, 100);
             LNombre.Margin = new Padding(3, 20, 3, 0);
             LNombre.Name = "LNombre";
             LNombre.Size = new Size(148, 21);
@@ -102,7 +102,7 @@
             BoxNombre.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BoxNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BoxNombre.ForeColor = Color.FromArgb(15, 23, 42);
-            BoxNombre.Location = new Point(53, 171);
+            BoxNombre.Location = new Point(53, 141);
             BoxNombre.Margin = new Padding(3, 20, 3, 3);
             BoxNombre.Multiline = true;
             BoxNombre.Name = "BoxNombre";
@@ -116,7 +116,7 @@
             LCorreo.AutoSize = true;
             LCorreo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             LCorreo.ForeColor = Color.FromArgb(12, 23, 42);
-            LCorreo.Location = new Point(53, 230);
+            LCorreo.Location = new Point(53, 200);
             LCorreo.Margin = new Padding(3, 20, 3, 0);
             LCorreo.Name = "LCorreo";
             LCorreo.Size = new Size(154, 21);
@@ -128,7 +128,7 @@
             BoxCorreo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BoxCorreo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BoxCorreo.ForeColor = Color.FromArgb(15, 23, 42);
-            BoxCorreo.Location = new Point(53, 271);
+            BoxCorreo.Location = new Point(53, 241);
             BoxCorreo.Margin = new Padding(3, 20, 3, 3);
             BoxCorreo.Multiline = true;
             BoxCorreo.Name = "BoxCorreo";
@@ -142,7 +142,7 @@
             LPassword.AutoSize = true;
             LPassword.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             LPassword.ForeColor = Color.FromArgb(12, 23, 42);
-            LPassword.Location = new Point(53, 330);
+            LPassword.Location = new Point(53, 300);
             LPassword.Margin = new Padding(3, 20, 3, 0);
             LPassword.Name = "LPassword";
             LPassword.Size = new Size(79, 21);
@@ -153,7 +153,7 @@
             // 
             BoxPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             BoxPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BoxPassword.Location = new Point(53, 371);
+            BoxPassword.Location = new Point(53, 341);
             BoxPassword.Margin = new Padding(3, 20, 3, 20);
             BoxPassword.Multiline = true;
             BoxPassword.Name = "BoxPassword";
@@ -167,7 +167,7 @@
             flowLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel2.Controls.Add(lIngresarImagen);
             flowLayoutPanel2.Controls.Add(BtnSubirImagen);
-            flowLayoutPanel2.Location = new Point(50, 427);
+            flowLayoutPanel2.Location = new Point(50, 397);
             flowLayoutPanel2.Margin = new Padding(0, 0, 0, 20);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(426, 36);
@@ -203,7 +203,6 @@
             BtnSubirImagen.TabIndex = 0;
             BtnSubirImagen.Text = "Subir Foto de Perfil";
             BtnSubirImagen.UseVisualStyleBackColor = true;
-            //BtnSubirImagen.Click += BtnSubirImagen_Click;
             // 
             // BtnRegister
             // 
@@ -219,7 +218,7 @@
             BtnRegister.FlatStyle = FlatStyle.Flat;
             BtnRegister.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnRegister.ForeColor = Color.White;
-            BtnRegister.Location = new Point(53, 503);
+            BtnRegister.Location = new Point(53, 473);
             BtnRegister.Margin = new Padding(3, 20, 3, 20);
             BtnRegister.Name = "BtnRegister";
             BtnRegister.Size = new Size(420, 50);
@@ -235,7 +234,7 @@
             LLSesion.Cursor = Cursors.Hand;
             LLSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LLSesion.LinkColor = Color.FromArgb(4, 121, 246);
-            LLSesion.Location = new Point(53, 573);
+            LLSesion.Location = new Point(53, 543);
             LLSesion.Name = "LLSesion";
             LLSesion.RightToLeft = RightToLeft.Yes;
             LLSesion.Size = new Size(420, 21);

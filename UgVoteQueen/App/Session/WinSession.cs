@@ -5,7 +5,6 @@ namespace Views.App.Session
 {
     public partial class WinSession : Form
     {
-        private Utils utils = new();
         private static WinSession _instance;
         private Login LoginPanel = new();
         private Register RegisterPanel = new();
@@ -27,7 +26,7 @@ namespace Views.App.Session
             InitializeComponent();
             LoginPanel.SetPanels(PanelPrincipal, RegisterPanel);
             RegisterPanel.SetPanels(PanelPrincipal, LoginPanel);
-            utils.ReplacePanelContent(PanelPrincipal, LoginPanel);
+            Utils.ReplacePanelContent(PanelPrincipal, LoginPanel);
         }
 
         private void PanelPrincipal_Paint(object sender, PaintEventArgs e)
