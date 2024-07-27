@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnRegister = new Button();
             btnLogin = new Button();
             lLabel = new Label();
             BoxCorreo = new TextBox();
@@ -36,27 +35,9 @@
             label1 = new Label();
             label2 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            LLSesion = new LinkLabel();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // btnRegister
-            // 
-            btnRegister.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnRegister.AutoSize = true;
-            btnRegister.BackColor = Color.White;
-            btnRegister.FlatAppearance.BorderColor = Color.DimGray;
-            btnRegister.FlatAppearance.MouseDownBackColor = Color.White;
-            btnRegister.FlatAppearance.MouseOverBackColor = Color.White;
-            btnRegister.FlatStyle = FlatStyle.Flat;
-            btnRegister.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegister.ForeColor = Color.FromArgb(12, 23, 42);
-            btnRegister.Location = new Point(53, 383);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(420, 50);
-            btnRegister.TabIndex = 1;
-            btnRegister.Text = "Registrate";
-            btnRegister.UseVisualStyleBackColor = false;
-            btnRegister.Click += btnRegister_Click;
             // 
             // btnLogin
             // 
@@ -146,7 +127,7 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.AutoScrollMargin = new Size(12, 12);
+            flowLayoutPanel1.AutoScrollMargin = new Size(10, 10);
             flowLayoutPanel1.AutoSize = true;
             flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel1.Controls.Add(lLabel);
@@ -155,14 +136,31 @@
             flowLayoutPanel1.Controls.Add(label2);
             flowLayoutPanel1.Controls.Add(BoxPassword);
             flowLayoutPanel1.Controls.Add(btnLogin);
-            flowLayoutPanel1.Controls.Add(btnRegister);
+            flowLayoutPanel1.Controls.Add(LLSesion);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(328, 66);
             flowLayoutPanel1.Margin = new Padding(10);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(50);
-            flowLayoutPanel1.Size = new Size(526, 486);
+            flowLayoutPanel1.Size = new Size(526, 451);
             flowLayoutPanel1.TabIndex = 7;
+            // 
+            // LLSesion
+            // 
+            LLSesion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            LLSesion.AutoSize = true;
+            LLSesion.Cursor = Cursors.Hand;
+            LLSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LLSesion.LinkColor = Color.FromArgb(4, 121, 246);
+            LLSesion.Location = new Point(53, 380);
+            LLSesion.Name = "LLSesion";
+            LLSesion.RightToLeft = RightToLeft.Yes;
+            LLSesion.Size = new Size(420, 21);
+            LLSesion.TabIndex = 11;
+            LLSesion.TabStop = true;
+            LLSesion.Text = "Si no tienes Cuenta, Registrate";
+            LLSesion.TextAlign = ContentAlignment.MiddleCenter;
+            LLSesion.LinkClicked += LLSesion_LinkClicked;
             // 
             // Login
             // 
@@ -180,8 +178,6 @@
         }
 
         #endregion
-
-        private Button btnRegister;
         private Button btnLogin;
         private Label lLabel;
         private TextBox BoxCorreo;
@@ -189,5 +185,6 @@
         private Label label1;
         private Label label2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private LinkLabel LLSesion;
     }
 }

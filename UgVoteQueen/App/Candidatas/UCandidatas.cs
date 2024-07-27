@@ -12,11 +12,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Views.App.Candidatas
 {
-    public partial class UListadoCandidatas : UserControl
+    public partial class UCandidatas : UserControl
     {
         private Panel mainPanel;
 
-        public UListadoCandidatas()
+        public UCandidatas()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace Views.App.Candidatas
         {
             CandidataDAO candidataDAO = new CandidataDAO();
             // Agregar columnas
-            dataGridView1.DataSource = candidataDAO.ListarCandidatas().Tables[0];
+            //dataGridView1.DataSource = candidataDAO.ListarCandidatas().Tables[0];
             MessageBox.Show("Candidatas cargadas exitosamente.");
 
         }

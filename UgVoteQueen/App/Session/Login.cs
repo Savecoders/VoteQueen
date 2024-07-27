@@ -112,10 +112,11 @@ namespace Views.App.Session
 
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+
+        private void LLSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Utils utils = new Utils();
-            utils.ReplacePanelContent(mainPanel, registerPanel);
+            Utils.ReplacePanelContent(mainPanel, registerPanel);
+
         }
     }
 }

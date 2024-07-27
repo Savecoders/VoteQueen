@@ -1,6 +1,7 @@
 using Views.App.Administrador;
+using Views.App.Session;
 
-namespace Views
+namespace Views.obj
 {
     internal static class Program
     {
@@ -13,7 +14,7 @@ namespace Views
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new HomeAdministrador());
+            Application.Run(new WinSession());
         }
     }
 }
