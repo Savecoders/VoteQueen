@@ -1,4 +1,8 @@
-﻿using Microsoft.Win32;
+﻿using Controllers;
+using Microsoft.VisualBasic.Logging;
+using Microsoft.Win32;
+using Models.DTO;
+using Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,25 +12,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Views.App.AdministradorView;
+using Views.App.EstudianteView;
 using Views.Common;
 
 namespace Views.App.Session
 {
-    public partial class Login : UserControl
+    public partial class Login : Form
     {
-        private Register registerPanel;
-        private Panel mainPanel;
-
-
         public Login()
         {
             InitializeComponent();
-        }
-
-        public void SetPanels(Panel mainPanel, Register registerPanel)
-        {
-            this.mainPanel = mainPanel;
-            this.registerPanel = registerPanel;
         }
 
 
@@ -52,48 +48,40 @@ namespace Views.App.Session
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            /*
             try
             {
+                EstudianteRepository estudianteRepository = new EstudianteRepository();
+                EstudianteController estudianteController = new EstudianteController(
+                        estudianteRepository
+                );
 
-                // Validar usuario
-                Usuario usuario = new Usuario();
-                usuario.Correo = BoxCorreo.Text;
-                usuario.Contrasena = BoxPassword.Text;
+                Estudiante estudiante = new Estudiante();
+                estudiante.Correo = TxtCorreo.Text.Trim().ToLower();
+                estudiante.Contrasena = TxtPassword.Text.Trim();
 
-                // Verificar si el usuario existe
-                UsuarioRepositorio usuarioDAL = new UsuarioRepositorio();
-
-                // Crear sesion
-                DataSet dataSet = usuarioDAL.LoginUsuario(usuario);
-                MessageBox.Show("Entra" + (dataSet.Tables[0].Rows.Count > 0) + "");
-
-                if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                if (estudianteController.LoginEstudiante(estudiante))
                 {
-                    // Primera Tabla
-                    DataTable tabla = dataSet.Tables[0];
+                    // Open the student home
+                    HomeAdministrador homeEstudiante = new HomeAdministrador();
+                    this.Hide();
+                    homeEstudiante.ShowDialog();
+                    this.Close();
 
-                    // Primera Fila
-                    DataRow fila = tabla.Rows[0];
-
-
-                    // Sesion Statica de Usuario
-                    SesionUsuario.Id = Convert.ToInt32(fila["UsuarioID"]);
-                    SesionUsuario.Nombre = fila["Nombre"].ToString();
-                    SesionUsuario.Correo = fila["Correo"].ToString();
-                    SesionUsuario.FotoPerfil = (byte[])fila["FotoPerfil"];
-
-                    // Mensaje a Usuario
-                    MessageBox.Show("Bienvenido " + SesionUsuario.Nombre, "Inicio de Sesion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Show error message
+                    MessageBox.Show("Usuario o contraseña incorrecta");
                 }
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Porfavor llene los campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show(ex.Message);
+
             }
-            */
 
         }
 
@@ -115,8 +103,23 @@ namespace Views.App.Session
 
         private void LLSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Utils.ReplacePanelContent(mainPanel, registerPanel);
+            this.Hide();
+            Register register = new Register();
+            register.ShowDialog();
+            this.Close();
+        }
 
+        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BtnAdministrador_Click(object sender, EventArgs e)
+        {
+            LoginAdmin loginAdmin = new LoginAdmin();
+            this.Hide();
+            loginAdmin.ShowDialog();
+            this.Close();
         }
     }
 }
