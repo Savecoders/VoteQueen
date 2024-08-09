@@ -15,12 +15,15 @@ namespace Models.DTO
         public DateTime Fecha { get; set; } = DateTime.Now;
         public TipoVotacion TipoVotacion { get; set; }
 
-        public Votacion(Estudiante usuario, Candidata candidata, TipoVotacion tipoVotacion, DateTime fecha)
+        public Votacion()
+        {
+        }
+
+        public Votacion(Estudiante usuario, Candidata candidata, TipoVotacion tipoVotacion)
         {
             Usuario = usuario;
             Candidata = candidata;
             TipoVotacion = tipoVotacion;
-            Fecha = fecha;
         }
 
 

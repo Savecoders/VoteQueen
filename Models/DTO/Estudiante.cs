@@ -12,6 +12,7 @@ namespace Models.DTO
     {
 
         private string matricula;
+        public bool Estado { get; set; } = true;
 
 
         // Constructor
@@ -20,20 +21,18 @@ namespace Models.DTO
         }
 
         public Estudiante(
+            int id,
             string nombre,
             string correo,
             string contrasena,
             byte[] fotoPerfil,
-            string matricula
-        ) : base(nombre, correo, contrasena, fotoPerfil)
+            string matricula,
+            bool estado
+        ) : base(id, nombre, correo, contrasena, fotoPerfil)
         {
             Matricula = matricula;
+            Estado = estado;
         }
-
-
-        // getters y setters
-
-
 
         public string Matricula
         {

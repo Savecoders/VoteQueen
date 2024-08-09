@@ -11,14 +11,18 @@ namespace Models.DTO
         public int ID { get; set; }
         private string nombre;
         private int edad;
-        private string datosAcademicos;
+        private string telefono;
+        private DateTime fechaNacimiento;
         private string pasatiempos;
         private string habilidades;
         private string intereses;
         private string aspiraciones;
+        private string carrera;
+        private int nivel;
         public byte[] FotoPrincipal { get; set; } = [];
         public Galeria GaleriaFotos { get; set; }
         public List<Comentario> Comentarios { get; set; }
+
 
 
         public string Nombre
@@ -60,22 +64,74 @@ namespace Models.DTO
             }
         }
 
-        public string DatosAcademicos
+        public string Carrera
         {
-            get { return datosAcademicos; }
+            get { return carrera; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Los datos academicos no pueden estar vacios");
+                    throw new ArgumentException("La carrera no pueden tener vacios");
                 }
 
                 if (value.Length > 100)
                 {
-                    throw new ArgumentException("Los datos academicos no pueden tener mas de 200 caracteres");
+                    throw new ArgumentException("Los datos academicos no pueden tener mas de 100 caracteres");
                 }
 
-                datosAcademicos = value;
+                carrera = value;
+            }
+        }
+
+        public int Nivel
+        {
+            get { return nivel; }
+            set
+            {
+                if (value < 1 || value > 10)
+                {
+                    throw new ArgumentException("El nivel debe estar entre 1 y 10");
+                }
+
+                nivel = value;
+            }
+        }
+
+        public string Telefono
+        {
+            get { return telefono; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException("El telefono no puede estar vacio");
+                }
+
+                if (value.Length > 10 || value.Length < 10)
+                {
+                    throw new ArgumentException("El telefono no puede tener mas ni menos de 10 caracteres");
+                }
+
+                if (!value.StartsWith("09"))
+                {
+                    throw new ArgumentException("El telefono debe empezar con 09");
+                }
+
+                telefono = value;
+            }
+        }
+
+        public DateTime FechaNacimiento
+        {
+            get { return fechaNacimiento; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("La fecha de nacimiento no puede estar vacia");
+                }
+
+                fechaNacimiento = value;
             }
         }
 
@@ -161,12 +217,15 @@ namespace Models.DTO
 
 
         // Constructor
+        public Candidata()
+        {
+        }
 
-        public Candidata(string nombre, int edad, string datosAcademicos, string pasatiempos, string habilidades, string intereses, string aspiraciones, Galeria galeriaFotos)
+        public Candidata(string nombre, int edad, string carrera, string pasatiempos, string habilidades, string intereses, string aspiraciones, Galeria galeriaFotos)
         {
             Nombre = nombre;
             Edad = edad;
-            DatosAcademicos = datosAcademicos;
+            Carrera = carrera;
             Pasatiempos = pasatiempos;
             Habilidades = habilidades;
             Intereses = intereses;

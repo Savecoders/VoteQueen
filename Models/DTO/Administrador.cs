@@ -10,22 +10,20 @@ namespace Models.DTO
 {
     public class Administrador : Persona
     {
-
         private string cargo;
-
-
         // Constructor
         public Administrador()
         {
         }
 
         public Administrador(
+            int id,
             string nombre,
             string correo,
             string contrasena,
             byte[] fotoPerfil,
             string cargo
-        ) : base(nombre, correo, contrasena, fotoPerfil)
+        ) : base(id, nombre, correo, contrasena, fotoPerfil)
         {
             Cargo = cargo;
         }

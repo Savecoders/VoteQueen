@@ -26,12 +26,14 @@ namespace Models.DTO
         }
 
         public Persona(
+            int id,
             string nombre,
             string correo,
             string contrasena,
             byte[] fotoPerfil
         )
         {
+            ID = id;
             Nombre = nombre;
             Correo = correo;
             Contrasena = contrasena;
@@ -73,7 +75,7 @@ namespace Models.DTO
                     throw new ArgumentException("El nombre no puede contener números");
                 }
 
-                nombre = value;
+                nombre = value.TrimEnd().ToLower();
             }
         }
 
@@ -87,7 +89,7 @@ namespace Models.DTO
                     throw new ArgumentException("El correo debe ser de la Universidad de Guayaquil y debe ser válido");
                 }
 
-                correo = value;
+                correo = value.TrimEnd().ToLower();
             }
         }
 

@@ -13,6 +13,10 @@ namespace Models.DTO
         private string texto;
         public DateTime Fecha { get; set; }
 
+        public Estudiante Estudiante { get; set; }
+
+
+        public Comentario() { }
 
         public Comentario(string texto)
         {
