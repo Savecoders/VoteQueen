@@ -1,4 +1,4 @@
-using Views.App.Administrador;
+using Views.App.AdministradorView;
 using Views.App.Session;
 
 namespace Views.obj
@@ -14,7 +14,7 @@ namespace Views.obj
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new WinSession());
+            Application.Run(new Login());
         }
     }
 }

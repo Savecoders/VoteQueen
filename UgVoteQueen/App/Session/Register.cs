@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Controllers;
+using Microsoft.Win32;
+using Models;
+using Models.DTO;
+using Models.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,27 +12,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Views.App.EstudianteView;
 using Views.Common;
 
 namespace Views.App.Session
 {
-    public partial class Register : UserControl
+    public partial class Register : Form
     {
 
-        private Panel mainPanel;
-        private Login loginPanel;
-        private byte[] imagePerfil = [];
+        public byte[] imagePerfil = [];
 
         public Register()
         {
             InitializeComponent();
         }
 
-        public void SetPanels(Panel mainPanel, Login loginPanel)
-        {
-            this.mainPanel = mainPanel;
-            this.loginPanel = loginPanel;
-        }
 
         private void lLabel_Click(object sender, EventArgs e)
         {
@@ -51,75 +50,59 @@ namespace Views.App.Session
 
         private void LLSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Utils.ReplacePanelContent(mainPanel, loginPanel);
-        }
-
-        private void btnRegister(object sender, EventArgs e)
-        {
-
-            // Obtener los datos de los campos
-            /*
-            try
-            {
-
-                Usuario usuario = new Usuario(
-
-                    BoxNombre.Text,
-                    BoxCorreo.Text,
-                    BoxPassword.Text,
-                    Rol.Estudiante,
-                    imagePerfil
-                );
-
-                // Crear el usuario
-
-                UsuarioRepositorio usuarioDAL = new UsuarioRepositorio();
-
-                usuarioDAL.RegistrarEstudiante(usuario);
-
-                // Notificar al usuario
-
-                notifyIcon1.BalloonTipTitle = "Usuario creado";
-                notifyIcon1.BalloonTipText = "El usuario ha sido creado exitosamente";
-                notifyIcon1.ShowBalloonTip(1000);
-
-                // Cambiar a la pantalla de login
-
-                utils.ReplacePanelContent(mainPanel, loginPanel);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
         }
 
         private void BtnSubirImagen_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+                imagePerfil = File.ReadAllBytes(openFileDialog.FileName);
+            }
+        }
+
+        private void BtnRegister_Click(object sender, EventArgs e)
+        {
             try
             {
-                // Subir imagen
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-                // convertir la imagen a bytes
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                EstudianteRepository estudianteRepository = new EstudianteRepository();
+                EstudianteController estudianteController = new EstudianteController(
+                        estudianteRepository
+                );
+
+                Estudiante estudiante = new Estudiante();
+                estudiante.Nombre = TxtNombre.Text;
+                estudiante.Correo = TxtCorreo.Text;
+                estudiante.Contrasena = TxtPassword.Text;
+                estudiante.Matricula = "SOF2024C1";
+                estudiante.FotoPerfil = imagePerfil;
+
+
+                if (estudianteController.RegistrarEstudiante(estudiante))
                 {
-                    string imagen = openFileDialog.FileName;
-                    byte[] imagenBytes = System.IO.File.ReadAllBytes(imagen);
-                    imagePerfil = imagenBytes;
+                    // Open the student home
+                    MessageBox.Show("Usuario registrado correctamente");
+                    this.Hide();
+                    Login login = new Login();
+                    login.ShowDialog();
+                    this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Error al registrar el usuario");
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al subir la imagen, verifica que la extension sea (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)");
+                MessageBox.Show("Error: " + ex.Message);
             }
-            finally
-            {
-                lIngresarImagen.ForeColor = Color.Green;
-                lIngresarImagen.Text = "Imagen Cargada";
-            }
-        */
         }
     }
 }

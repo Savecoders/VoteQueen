@@ -8,16 +8,23 @@ namespace Models.DTO
 {
     public class Galeria
     {
+        public int ID { get; set; }
         private string titulo;
         private string descripcion;
-        public int ID { get; set; }
+        public byte[] Portada { get; set; } = [];
         public List<Foto> Fotos { get; set; }
 
-        public Galeria(string titulo, string descripcion, List<Foto> fotos)
+        public DateTime FechaCreacion { get; set; } = DateTime.Now;
+
+        public Galeria()
+        {
+        }
+
+        public Galeria(string titulo, string descripcion, byte[] portada)
         {
             Titulo = titulo;
             Descripcion = descripcion;
-            Fotos = fotos;
+            Portada = portada;
         }
 
         public string Titulo
