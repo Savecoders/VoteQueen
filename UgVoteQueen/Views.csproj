@@ -22,19 +22,48 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="App\Estudiante\HomeEstudiante.cs">
+    <Compile Update="App\AdministradorView\UEditarAdministrador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\CandidatasView\UEditarCandidata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\EstudianteView\HomeEstudiante.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="App\EstudianteView\URegistrarEstudiante.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\EstudianteView\UEditarEstudiante.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\FotoView\PreviewFoto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\GaleriaView\CardGaleria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\GaleriaView\UGaleriaView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\GaleriaView\UActualizarGaleria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\Session\LoginAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\VotacionView\UVoteFotogenea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Components\CardFoto.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="App\Administrador\HomeAdministrador.cs">
+    <Compile Update="App\AdministradorView\HomeAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -48,6 +77,11 @@
 
   <ItemGroup>
     <Folder Include="obj\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Controllers\Controllers.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
 </Project>

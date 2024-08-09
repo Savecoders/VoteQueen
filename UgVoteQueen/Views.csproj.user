@@ -1,38 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="App\Candidatas\UCandidataView.cs">
+    <Compile Update="App\AdministradorView\HomeAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="App\CandidatasView\UCandidataPortafolio.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Candidatas\UCrearComentarioCandidata.cs">
+    <Compile Update="App\CandidatasView\UCandidataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Candidatas\UDarDeBajaCandidata.cs">
+    <Compile Update="App\ComentarioView\UComentario.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Candidatas\UCrearCandidata.cs">
+    <Compile Update="App\ComentarioView\UComentariosFoto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Candidatas\UEditarCandidata.cs">
+    <Compile Update="App\CandidatasView\URegistrarCandidata.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Candidatas\UCandidatas.cs">
+    <Compile Update="App\CandidatasView\UCandidatas.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Galeria\EditarGaleriaForm.cs">
+    <Compile Update="App\EstudianteView\HomeEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="App\EstudianteView\UEstudiantes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Galeria\RegistrarGaleriaForm.cs">
+    <Compile Update="App\FotoView\FAgregarFoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="App\GaleriaView\UGalerias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\GaleriaView\URegistrarGaleria.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="App\Session\Login.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="App\Session\LoginAdmin.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="App\Session\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="App\Session\UHomePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="App\Session\WinSession.cs">
-      <SubType>Form</SubType>
+    <Compile Update="App\VotacionView\UVotacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="App\VotacionView\UVoteFMCF.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Components\CardCandidata.cs">
       <SubType>UserControl</SubType>
