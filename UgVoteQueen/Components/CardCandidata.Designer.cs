@@ -35,13 +35,8 @@ namespace Views.Components
             LCandidataNombre = new Label();
             LCarrera = new Label();
             btnCandidataView = new Button();
-            LayoutState = new FlowLayoutPanel();
-            pictureBox2 = new PictureBox();
-            LComentarios = new Label();
             LayoutContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ImageCandidata).BeginInit();
-            LayoutState.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // LayoutContainer
@@ -51,12 +46,11 @@ namespace Views.Components
             LayoutContainer.AutoScrollMinSize = new Size(20, 20);
             LayoutContainer.AutoSize = true;
             LayoutContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            LayoutContainer.BackColor = Color.FromArgb(250, 250, 250);
+            LayoutContainer.BackColor = Color.White;
             LayoutContainer.Controls.Add(ImageCandidata);
             LayoutContainer.Controls.Add(LCandidataNombre);
             LayoutContainer.Controls.Add(LCarrera);
             LayoutContainer.Controls.Add(btnCandidataView);
-            LayoutContainer.Controls.Add(LayoutState);
             LayoutContainer.Dock = DockStyle.Fill;
             LayoutContainer.FlowDirection = FlowDirection.TopDown;
             LayoutContainer.Location = new Point(0, 0);
@@ -64,7 +58,7 @@ namespace Views.Components
             LayoutContainer.MinimumSize = new Size(220, 280);
             LayoutContainer.Name = "LayoutContainer";
             LayoutContainer.Padding = new Padding(10);
-            LayoutContainer.Size = new Size(280, 437);
+            LayoutContainer.Size = new Size(280, 397);
             LayoutContainer.TabIndex = 0;
             LayoutContainer.TabStop = true;
             // 
@@ -74,8 +68,10 @@ namespace Views.Components
             ImageCandidata.Name = "ImageCandidata";
             ImageCandidata.Padding = new Padding(0, 0, 0, 10);
             ImageCandidata.Size = new Size(250, 250);
+            ImageCandidata.SizeMode = PictureBoxSizeMode.StretchImage;
             ImageCandidata.TabIndex = 2;
             ImageCandidata.TabStop = false;
+            ImageCandidata.Click += ImageCandidata_Click;
             // 
             // LCandidataNombre
             // 
@@ -106,53 +102,22 @@ namespace Views.Components
             btnCandidataView.Name = "btnCandidataView";
             btnCandidataView.Size = new Size(250, 40);
             btnCandidataView.TabIndex = 4;
-            btnCandidataView.Text = "Ver Mas";
+            btnCandidataView.Text = "Ver Portafolio";
             btnCandidataView.UseVisualStyleBackColor = true;
-            // 
-            // LayoutState
-            // 
-            LayoutState.Controls.Add(pictureBox2);
-            LayoutState.Controls.Add(LComentarios);
-            LayoutState.FlowDirection = FlowDirection.RightToLeft;
-            LayoutState.Location = new Point(13, 382);
-            LayoutState.Name = "LayoutState";
-            LayoutState.Size = new Size(250, 38);
-            LayoutState.TabIndex = 3;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Location = new Point(217, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(30, 30);
-            pictureBox2.TabIndex = 2;
-            pictureBox2.TabStop = false;
-            // 
-            // LComentarios
-            // 
-            LComentarios.AutoSize = true;
-            LComentarios.Font = new Font("SF Pro Rounded", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LComentarios.ForeColor = Color.FromArgb(39, 39, 42);
-            LComentarios.Location = new Point(169, 0);
-            LComentarios.Name = "LComentarios";
-            LComentarios.Padding = new Padding(0, 10, 0, 0);
-            LComentarios.Size = new Size(42, 26);
-            LComentarios.TabIndex = 1;
-            LComentarios.Text = "label3";
+            btnCandidataView.Click += btnCandidataView_Click;
             // 
             // CardCandidata
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(250, 250, 249);
+            BackColor = Color.White;
             Controls.Add(LayoutContainer);
+            Cursor = Cursors.Hand;
             Name = "CardCandidata";
-            Size = new Size(280, 437);
+            Size = new Size(280, 397);
             LayoutContainer.ResumeLayout(false);
             LayoutContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ImageCandidata).EndInit();
-            LayoutState.ResumeLayout(false);
-            LayoutState.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -163,9 +128,6 @@ namespace Views.Components
         private Label LCandidataNombre;
         private Label LCarrera;
         private PictureBox ImageCandidata;
-        private FlowLayoutPanel LayoutState;
-        private Label LComentarios;
         private Button btnCandidataView;
-        private PictureBox pictureBox2;
     }
 }
